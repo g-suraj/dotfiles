@@ -1,0 +1,12 @@
+set t_Co=256
+inoremap jk <ESC>
+let mapleader = "\<Space>"
+filetype plugin indent on
+syntax on
+set encoding=utf-8
+nmap <CR> o<Esc>
+nmap <S-CR> O<Esc>
+map <c-s-f> gg=G''
+set autoindent
+set nu
+map zz A;<ESC>
