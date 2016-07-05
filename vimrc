@@ -200,5 +200,9 @@ cnoremap <c-n> <CR>n/<c-p>
 set ignorecase
 set tw=80
 set fo-=l
-let g:goyo_width = 100-40
-let g:goyo_height = 200
+nnoremap <Space> za
+set foldmethod=indent
+command W w
+command Wq wq
+command WQ wq
+command Q q
