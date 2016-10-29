@@ -1,208 +1,179 @@
-filetype plugin indent on    " required
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"
+"				Vundle	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set nocompatible
+set backspace=2
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'valloric/YouCompleteMe'
+call vundle#end()
+filetype plugin indent on  
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"				VimPlug	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+call plug#begin('~/.vim/plugged')
 
-""""""""""
-"VimPlug
-""""""""""
-    call plug#begin('~/.vim/plugged')
+" LaTeX Plugins
+Plug 'lervag/vimtex'
 
-    " Colour Scheme
-    Plug 'jacoborus/tender'
+" Colour Schemes
+Plug 'jacoborus/tender'
+Plug 'morhetz/gruvbox'
 
-    "Airline status bar with powerline
-    Plug 'itchyny/lightline.vim'
+" Airline
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 
-    "CtrlP fuzzy searcher for vim
-    Plug 'kien/ctrlp.vim'
+"CtrlP search
+Plug 'kien/ctrlp.vim'
 
-    "Ag.vim
-    Plug 'rking/ag.vim'
+" Supertab
+Plug 'ervandew/supertab' 
 
-    "Syntastic Plugin Plug 'scrooloose/syntastic'
-    Plug 'scrooloose/syntastic'
+"UltiSnips
+Plug 'SirVer/ultisnips'
 
-    "Indentation Stuff
-    Plug 'Yggdroot/indentLine'
+" NerdTree
+Plug 'scrooloose/nerdtree'
 
-    Plug 'ervandew/supertab'
-    Plug 'sirver/ultisnips'
-    Plug 'honza/vim-snippets'
-    Plug 'scrooloose/nerdtree'
-    Plug 'raimondi/delimitmate'
+" Emmet-Vim
+Plug 'mattn/emmet-vim'
 
-    " Add plugins to &runtimepath
-    call plug#end()
-""""""""""
+" Snippets
+Plug 'honza/vim-snippets'
 
+" YCM Generator
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
-""""""""""
-"General
-""""""""""
-    syntax on
-    imap jk <Esc>
-    imap <C-c> /**/jkhha
-    "New tab bindings
-    nnoremap <C-t> :tabnew<CR>
-    inoremap <C-t> <Esc>:tabnew<CR>
-    set noswapfile
-    nnoremap <leader>a :Ag
-    nnoremap <C-h> :tabprevious<CR>
-    nnoremap <C-l> :tabnext<CR>
-    nmap <S-Enter> O<Esc>
-    nmap <CR> o<Esc>
-""""""""""
+"Markdown preview generator
+Plug 'JamshedVesuna/vim-markdown-preview'
 
+call plug#end()
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"				General	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set nocompatible
+syntax on
+imap jk <Esc>
+imap <C-c> /**/jkhha
+"Tab bindings
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
+set noswapfile
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+command! W w
+command! Wq wq
+command! WQ wq
+command! Q q
+let mapleader=","
 
-""""""""""
-"SpacesAndTabs
-""""""""""
-    set exrc    "These two are for C
-    set secure
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=darkgray
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			    Spaces / Tabs	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set exrc    "These two are for C
+set secure
+set colorcolumn=120
+highlight ColorColumn ctermbg= gray
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " Number of spaces when TAB is pressed
+set shiftwidth=2
+set expandtab 	" Converts tabs into spaces
+set smartindent
+set autoindent
+set nopaste 
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"				   UI	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set clipboard=unnamedplus
+set cursorline
+set number
+filetype indent on
+set lazyredraw
+set showmatch
+nnoremap j gj
+nnoremap k gk
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+" $/^ doesn't do anything
+nnoremap $ <nop>
+nnoremap ^ <nop>
+nnoremap <Space> za
+map <c-S-f> mzgg=G`z
 
-    set tabstop=2       " number of visual spaces per TAB
-    set softtabstop=2   " Number of spaces when TAB is pressed
-    set shiftwidth=2
-    set expandtab 	    " Converts tabs into spaces
-    set smartindent
-"""""""""""
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"				 Colours	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set t_Co=256
+colorscheme gruvbox
+set background=dark
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"				 lightline	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set laststatus=2
+" set lighline theme
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"				 CtrlP	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+let g:ctrlp_map = '<c-p>'
 
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"		          Syntastic Settings	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-""""""""""
-"UIConfig
-""""""""""
-    set clipboard=unnamedplus
-    set cursorline
-    set number
-    filetype indent on
-    set lazyredraw
-    set showmatch
-    nnoremap j gj
-    nnoremap k gk
-    " move to beginning/end of line
-    nnoremap B ^
-    nnoremap E $
-    " $/^ doesn't do anything
-    nnoremap $ <nop>
-    nnoremap ^ <nop>
-
-    "For C
-    augroup project
-    autocmd!
-        autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
-    augroup END
-"""""""""""
-
-
-"""""""""""
-"Searching
-""""""""""
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-"""""""""""
-
-
-"""""""""""
-"Colors and visuals
-""""""""""
-    set t_Co=256
-    colorscheme tender
-""""""""""
-
-
-"""""""""""
-"Airline
-""""""""""
-    set laststatus=2
-    " enable tender lightline theme
-    let g:tender_lightline = 1
-    " " set lighline theme
-    let g:lightline = { 'colorscheme': 'tender' }
-"""""""""""
-
-
-"""""""""""
-"CtrlP settings
-""""""""""
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
-"""""""""""
-
-
-"""""""""""
-"Syntastic Settings
-""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"""""""""""
-
-
-"""""""""""
-"Tmux
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        else
-            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-                let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-                endif
-"""""""""""
-
-
-"""""""""""
-"indentation
-"""""""""""
-let g:indentLine_color_term = 239
-let g:indentLine_char = '|'
-"""""""""""
-
-
-
-"""""""""""
-"ETC
-"""""""""""
-"ETC
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-let g:clang_library_path='/usr/lib/llvm-3.6/lib'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-autocmd BufWritePre * :%s/\s\+$//e
-"""""
-"NerdTree"
-"""""
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			       NerdTree
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeQuitOnOpen=1
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-set completeopt-=preview
-set spell spelllang=en_gb
-map <C-S-f> mzgg=G`z
-cnoremap <c-n> <CR>n/<c-p>
-set ignorecase
-set tw=80
-set fo-=l
-nnoremap <Space> za
-set foldmethod=indent
-command W w
-command Wq wq
-command WQ wq
-command Q q
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			       Searching	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set incsearch           " search as characters are entered
+set hlsearch " highlight matches
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			         YCM	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			         NERDTree	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+let NERDTreeMapOpenInTab='<ENTER>'
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			         UltiSnps	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			         VimTex	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+let g:vimtex_latexmk_continuous=1
+let g:vimtex_viewer_mupdf=1
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"			         Markdown Preview	
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+let vim_markdown_preview_hotkey='<C-m>'

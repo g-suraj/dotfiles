@@ -42,6 +42,7 @@ esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
+export TERM=xterm-256color
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
@@ -115,6 +116,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH=$HOME/cmus/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+      source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+    fi

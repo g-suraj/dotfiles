@@ -1,77 +1,53 @@
 [global_config]
-  geometry_hinting = False
-  title_hide_sizetext = True
-  hide_from_taskbar = True
-  inactive_color_offset = 1.0
   borderless = True
-
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  geometry_hinting = False
+  handle_size = 0
+  hide_from_taskbar = True
+  inactive_color_offset = 0.89
 [keybindings]
-  search = <Primary><Shift><Alt>f
   close_term = <Primary>w
-[profiles]
-  [[default]]
-    use_system_font = False
-    font = Cousine for Powerline 13
-    palette = "#212121:#b7141f:#457b24:#f6981e:#134eb2:#560088:#0e717c:#efefef:#424242:#e83b3f:#7aba3a:#ffea2e:#54a4f3:#aa4dbc:#26bbd1:#d9d9d9"
-    background_color = "#232322"
-    cursor_color = "#16afca"
-    foreground_color = "#e5e5e5"
-    background_image = None
-  [[eighties something]]
-    use_system_font = False
-    font = Cousine for Powerline 13
-    palette = "#321300:#b2270e:#44a900:#aa820c:#58859a:#97363d:#b25a1e:#786b53:#433626:#ed5d20:#55f238:#f2b732:#85cfed:#e14c5a:#f07d14:#ffc800"
-    background_color = "#191919"
-    cursor_color = "#fac814"
-    foreground_color = "#786b53"
-    background_image = None
-  [[treehouse]]
-    use_system_font = False
-    font = Cousine for Powerline 13
-    palette = "#321300:#b2270e:#44a900:#aa820c:#58859a:#97363d:#b25a1e:#786b53:#433626:#ed5d20:#55f238:#f2b732:#85cfed:#e14c5a:#f07d14:#ffc800"
-    background_color = "#191919"
-    cursor_color = "#fac814"
-    foreground_color = "#786b53"
-    background_image = None
-  [[AdventureTime]]
-    palette = "#050404:#bd0013:#4ab118:#e7741e:#0f4ac6:#665993:#70a598:#f8dcc0:#4e7cbf:#fc5f5a:#9eff6e:#efc11a:#1997c6:#9b5953:#c8faf4:#f6f5fb"
-    background_color = "#1f1d45"
-    background_image = None
-    cursor_color = "#efbf38"
-    foreground_color = "#f8dcc0"
-  [[Arthur]]
-    palette = "#3d352a:#cd5c5c:#86af80:#e8ae5b:#6495ed:#deb887:#b0c4de:#bbaa99:#554444:#cc5533:#88aa22:#ffa75d:#87ceeb:#996600:#b0c4de:#ddccbb"
-    background_color = "#1c1c1c"
-    background_image = None
-    cursor_color = "#e2bbef"
-    foreground_color = "#ddeedd"
-  [[Afterglow]]
-    palette = "#151515:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#d0d0d0:#505050:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#f5f5f5"
-    background_color = "#212121"
-    background_image = None
-    cursor_color = "#d0d0d0"
-    foreground_color = "#d0d0d0"
-  [[belafonte Day]]
-    palette = "#20111b:#be100e:#858162:#eaa549:#426a79:#97522c:#989a9c:#968c83:#5e5252:#be100e:#858162:#eaa549:#426a79:#97522c:#989a9c:#d5ccba"
-    background_color = "#d5ccba"
-    background_image = None
-    cursor_color = "#45373c"
-    foreground_color = "#45373c"
-    copy_on_selection = True
-  [[original]]
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    background_image = None
-    use_system_font = False
-    foreground_color = "#657b83"
-    font = Cousine for Powerline 13
-    background_color = "#fdf6e3"
+  search = <Primary><Shift><Alt>f
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
-      profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    background_darkness = 1.2
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#708284"
+    font = Droid Sans Mono for Powerline 12
+    foreground_color = "#ebdbb2"
+    icon_bell = False
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#bdae93:#7c6f64:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[default - TRU BACKUP]]
+    background_color = "#2b2d2e"
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#708284"
+    font = Droid Sans Mono for Powerline 12
+    foreground_color = "#d2d8d9"
+    palette = "#7d8b8f:#b23a52:#789b6a:#b9ac4a:#2a7fac:#bd4f5a:#44a799:#d2d8d9:#888888:#f24840:#80c470:#ffeb62:#4196ff:#fc5275:#53cdbd:#d2d8d9"
+    show_titlebar = False
+    use_system_font = False
+  [[default_backup1]]
+    background_color = "#20242d"
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#b3b8c3"
+    font = Fira Mono for Powerline 12
+    foreground_color = "#b3b8c3"
+    palette = "#000000:#b04b57:#87b379:#e5c179:#7d8fa4:#a47996:#85a7a5:#b3b8c3:#000000:#b04b57:#87b379:#e5c179:#7d8fa4:#a47996:#85a7a5:#ffffff"
+    show_titlebar = False
+    use_system_font = False

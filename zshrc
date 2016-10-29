@@ -1,15 +1,24 @@
-export TERM="xterm-256color"
-# Path to your oh-my-zsh installation.
-export ZSH=/home/s/.oh-my-zsh
+export TERM=rxvt-unicode-256color
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="clean"
-#ZSH_THEME="cloud"
-ZSH_THEME="terminalparty"
+# Path to your oh-my-zsh installation.
+export ZSH=/home/suraj/.oh-my-zsh
+
+#PLUGINS
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="arrow"
+#ZSH_THEME="sunaku"
+#ZSH_THEME="sunrise"
+#ZSH_THEME="blinks"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="spaceship"
+#ZSH_THEME="terminalparty"
+ZSH_THEME="geometry"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -31,7 +40,7 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -53,24 +62,23 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found history dirhistory lwd)
+plugins=(git colorize lol)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#Preferred editor for local and remote sessions
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='vim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,7 +94,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-cd ~/Dropbox/Computing/Year\ 1/term3/
 alias ls="ls -a -F -o"
 alias gst="git status"
 alias status="git status"
@@ -95,7 +102,7 @@ alias push="git push"
 alias pull="git pull"
 alias merge="git merge"
 alias cdhome="cd ~/Dropbox/Computing/Year\ 1"
-alias z="thunar . &"
+alias z="nautilus . &"
 alias v="vim"
 alias inst="sudo apt-get install"
 alias lyrics="cmus-lyrics"
@@ -103,7 +110,17 @@ alias zshrc="v ~/.zshrc"
 alias vimrc="v ~/.vimrc"
 alias extract="tar -xvzf"
 alias t="tree -L 2 -C"
-setopt PROMPT_SUBST
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-alias rbp="cd /home/s/Dropbox/Computing/Year\ 1/term3/RBP/arm11_34"
+alias termconf="vim ~/.config/terminator/config"
+alias i3rc="vim ~/.config/i3/config"
+alias lemonrc="vim ~/.config/lemonbuddy/config"
+alias i3conf="vim ~/.config/i3/config"
+alias mopidyrc="vim ~/.config/mopidy/mopidy.conf"
+alias brighter="xbacklight -inc 15"
+alias darker="xbacklight -dec 15"
+alias pj="cd /home/suraj/Dropbox/Computing/term1/Lab/wacc_examples"
+alias wb="cd /home/suraj/github/personal_webpage/bower_components/bootstrap/dist/"
+alias intellij="/tmp/idea-IC-162.2032.8/bin/idea.sh"
+alias clean="make clean"
+alias nyan="nyancat"
+alias color="~/color-scripts/color-scripts/space-invaders"
+export VIMRUNTIME=/usr/share/vim/vim80
