@@ -6,7 +6,7 @@
   hide_from_taskbar = True
   inactive_color_offset = 0.89
 [keybindings]
-  close_term = <Primary>w
+  close_term = None
   search = <Primary><Shift><Alt>f
 [layouts]
   [[default]]
@@ -24,7 +24,7 @@
     background_image = None
     cursor_blink = False
     cursor_color = "#708284"
-    font = Droid Sans Mono for Powerline 12
+    font = Cousine for Powerline 12
     foreground_color = "#ebdbb2"
     icon_bell = False
     palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#bdae93:#7c6f64:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"

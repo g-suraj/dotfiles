@@ -38,7 +38,9 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher) - extended to run rofi instead
 #bindsym $mod+d exec --no-startup-id rofi -show run -lines 3 -eh 2 -width 100 -padding 430 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 #bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -p "Applications:" -sidebar-mode'
-bindsym $mod+d exec rofi -show run -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
+#i3-dmenu-desktop --dmenu='rofi -dmenu'
+#bindsym $mod+d exec rofi -show run -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -sidebar -mode-font "ubuntu mono 18" -width 30 -padding 12 -opacity "85" -eh 1 -lines 5 -padding 20 -hide-scrollbar -font "System San Francisco Display 18" -i'
 
 #
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -47,10 +49,10 @@ bindsym $mod+d exec rofi -show run -font "ubuntu mono 18" -fg "#505050" -bg "#00
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -59,10 +61,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -71,7 +73,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -80,9 +82,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -98,9 +100,10 @@ bindsym $mod+a focus parent
 
 #Gaps configuration
 
-gaps inner 25
-gaps outer 0
+gaps inner 6
+gaps outer 2 
 smart_gaps on
+
 bindsym $mod+Shift+g mode "$mode_gaps_outer"
 set $mode_gaps_outer Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 mode "$mode_gaps_outer" {
@@ -115,6 +118,11 @@ mode "$mode_gaps_outer" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+bindsym $mod+mod1+Left workspace prev
+bindsym $mod+mod1+Right workspace next
+
+
 
 # Defining workspace functions
 set $workspace1  "1  "
@@ -156,16 +164,14 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Nautilus"] $workspace1
 assign [class="Terminator"] $workspace2
 assign [class="Google-chrome"] $workspace3
-assign [class="MuPDF"] $workspace4
+#assign [class="MuPDF"] $workspace4
 assign [class="Firefox"] $workspace3
 assign [class="Spotify"] $workspace10
 for_window [class="Google-chrome"] move to workspace $workspace3
-for_window [class="MuPDF"] move to workspace $workspace4
+#for_window [class="MuPDF"] move to workspace $workspace4
 for_window [class="Firefox"] move to workspace $workspace3
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [class="Terminator" instance="cmus"] move to workspace $workspace9
-for_window [class="Nautilus"] floating enable move position center
-for_window [class="Thunar"] floating enable move position center
 for_window [class="^.*"] border pixel 1
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -202,7 +208,7 @@ bindsym $mod+r mode "resize"
 
 # Colour Configurations
 set $bg-color            #282828
-set $inactive-bg-color   #282828
+set $inactive-bg-color   #504945
 set $text-color          #fbf1c7
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
@@ -211,7 +217,7 @@ hide_edge_borders both
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $text-color        $text-color          $text-color          $text-color
+client.focused          $text-color        #98971a          $text-color          $text-color
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $bg-color
@@ -245,7 +251,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s noblank
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
-exec_always --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 
+exec_always --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 exec --no-startup-id xinput set-prop 10 'Device Enabled' 0 
 exec --no-startup-id fluxgui
@@ -254,7 +260,7 @@ exec --no-startup-id compton -f -C
 exec --no-startup-id lemonbuddy bar 
 
 #Initiate i3lock
-bindsym $mod+shift+x exec lock --font "System San Francisco Display "
+bindsym $mod+shift+x exec lock -p --font "System San Francisco Display "
 #Rofi instead of dmenu is being triggered
 
 #Set wallpaper
@@ -267,7 +273,8 @@ bindsym $mod+shift+x exec lock --font "System San Francisco Display "
 #forest
 #exec_always feh --bg-fill ~/Pictures/forest.jpg 
 #leaves
-exec_always feh --bg-fill ~/Pictures/leaves2.jpg
+#exec_always feh --bg-fill ~/Pictures/leaves2.jpg
+exec_always feh --bg-fill ~/Pictures/feh.png
 
 #Always keep filesystem open
 

@@ -11,17 +11,18 @@ export ZSH=/home/suraj/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="arrow"
 #ZSH_THEME="sunaku"
 #ZSH_THEME="sunrise"
 #ZSH_THEME="blinks"
-#ZSH_THEME="agnoster"
-#ZSH_THEME="spaceship"
-#ZSH_THEME="terminalparty"
-ZSH_THEME="geometry"
+#ZSH_THEME="powerlevel9k"
+ZSH_THEME="terminalparty"
+#ZSH_THEME="geometry"
+#ZSH_THEME="minimal"
+#ZSH_THEME="arrow"
+
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -74,11 +75,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 #Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='vim'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,7 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="ls -a -F -o"
+alias pj="cd /home/suraj/Dropbox/Computing/term1/Lab/wacc_33/src/cppsource"
+
+alias z="ranger"
 alias gst="git status"
 alias status="git status"
 alias commit="git commit"
@@ -102,14 +105,13 @@ alias push="git push"
 alias pull="git pull"
 alias merge="git merge"
 alias cdhome="cd ~/Dropbox/Computing/Year\ 1"
-alias z="nautilus . &"
 alias v="vim"
-alias inst="sudo apt-get install"
+alias inst="sudo apt install"
 alias lyrics="cmus-lyrics"
 alias zshrc="v ~/.zshrc"
 alias vimrc="v ~/.vimrc"
 alias extract="tar -xvzf"
-alias t="tree -L 2 -C"
+alias t="tree -L 4 -C -v -d"
 alias termconf="vim ~/.config/terminator/config"
 alias i3rc="vim ~/.config/i3/config"
 alias lemonrc="vim ~/.config/lemonbuddy/config"
@@ -117,10 +119,15 @@ alias i3conf="vim ~/.config/i3/config"
 alias mopidyrc="vim ~/.config/mopidy/mopidy.conf"
 alias brighter="xbacklight -inc 15"
 alias darker="xbacklight -dec 15"
-alias pj="cd /home/suraj/Dropbox/Computing/term1/Lab/wacc_examples"
 alias wb="cd /home/suraj/github/personal_webpage/bower_components/bootstrap/dist/"
-alias intellij="/tmp/idea-IC-162.2032.8/bin/idea.sh"
 alias clean="make clean"
 alias nyan="nyancat"
 alias color="~/color-scripts/color-scripts/space-invaders"
+alias ls="ls -a -F --color=auto --group-directories-first"
+alias re="reset"
+alias docssh="ssh sg6215@point54.doc.ic.ac.uk"
+alias copy="xclip -selection clipboard"
+alias moo="apt-get moo | head -n 6"
+alias wacce="cd ~/Dropbox/Computing/term1/Lab/wacc_examples"
+alias sdl="cd ~/github/gameOne/"
 export VIMRUNTIME=/usr/share/vim/vim80

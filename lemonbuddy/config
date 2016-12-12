@@ -27,7 +27,7 @@ clickareas = 35
 ;monitor = eDP1
 bottom = false
 dock = false
-width = 100%
+width = 1920
 height = 24
 ;offset_x = 0
 ;offset_y = 0
@@ -177,8 +177,8 @@ strip-wsnumbers = true
 wsname-maxlen = 5
 
 label-focused = %index%
-label-focused-foreground = #fffbf1c7
-label-unfocused-foreground = #ccebdbb2
+label-focused-foreground = #fffabd2f
+label-unfocused-foreground = #ccfabd2f
 label-focused-background = #cc504945
 ;label-focused-underline= #ccfabd2f
 
