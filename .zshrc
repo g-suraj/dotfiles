@@ -76,9 +76,9 @@ source $ZSH/oh-my-zsh.sh
 
 #Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -95,7 +95,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pj="cd /home/suraj/Dropbox/Computing/term1/Lab/wacc_33/src/cppsource"
+alias pj="cd /home/suraj/Dropbox/Computing/pintos/"
 
 alias z="ranger"
 alias gst="git status"
@@ -105,18 +105,19 @@ alias push="git push"
 alias pull="git pull"
 alias merge="git merge"
 alias cdhome="cd ~/Dropbox/Computing/Year\ 1"
-alias v="vim"
+alias v="nvim"
+alias vim="nvim"
 alias inst="sudo apt install"
 alias lyrics="cmus-lyrics"
-alias zshrc="v ~/.zshrc"
-alias vimrc="v ~/.vimrc"
+alias zshrc="nvim ~/.zshrc"
+alias vimrc="nvim ~/.config/nvim/init.vim"
 alias extract="tar -xvzf"
 alias t="tree -L 4 -C -v -d"
-alias termconf="vim ~/.config/terminator/config"
-alias i3rc="vim ~/.config/i3/config"
-alias lemonrc="vim ~/.config/lemonbuddy/config"
-alias i3conf="vim ~/.config/i3/config"
-alias mopidyrc="vim ~/.config/mopidy/mopidy.conf"
+alias termconf="nvim ~/.config/terminator/config"
+alias i3rc="nvim ~/.config/i3/config"
+alias lemonrc="nvim ~/.config/lemonbuddy/config"
+alias i3conf="nvim ~/.config/i3/config"
+alias mopidyrc="nvim ~/.config/mopidy/mopidy.conf"
 alias brighter="xbacklight -inc 15"
 alias darker="xbacklight -dec 15"
 alias wb="cd /home/suraj/github/personal_webpage/bower_components/bootstrap/dist/"
@@ -130,4 +131,6 @@ alias copy="xclip -selection clipboard"
 alias moo="apt-get moo | head -n 6"
 alias wacce="cd ~/Dropbox/Computing/term1/Lab/wacc_examples"
 alias sdl="cd ~/github/gameOne/"
-export VIMRUNTIME=/usr/share/vim/vim80
+#export VIMRUNTIME+=/usr/share/vim/vim80
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
