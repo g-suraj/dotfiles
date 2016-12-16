@@ -8,6 +8,8 @@
 [keybindings]
   close_term = None
   search = <Primary><Shift><Alt>f
+  zoom_in = None
+  zoom_out = None
 [layouts]
   [[default]]
     [[[child1]]]

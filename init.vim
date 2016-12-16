@@ -14,6 +14,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Shougo/neco-vim'
   Plug 'neomake/neomake'
 
+  "Tim Pope
+  Plug 'tpope/vim-fugitive'
+
   " LaTeX Plugins
   Plug 'lervag/vimtex'
 
@@ -24,12 +27,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'itchyny/lightline.vim'
   Plug 'shinchu/lightline-gruvbox.vim'
+  Plug 'arakashic/chromatica.nvim'
 
   " Fuzzy searchers
   " NerdTree
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'scrooloose/nerdtree'
+  "Plug 'scrooloose/nerdtree'
 
   " Supertab
   Plug 'ervandew/supertab'
@@ -50,7 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neovimhaskell/haskell-vim'
   Plug 'justinmk/vim-syntax-extra'
   Plug 'contactgsuraj/wacc_syntax'
-  Plug 'octol/vim-cpp-enhanced-highlight' 
+  "Plug 'octol/vim-cpp-enhanced-highlight' 
 
   "Clang Formatter
   Plug 'rhysd/vim-clang-format'
@@ -190,7 +194,7 @@ let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
 let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-highlight LineNr ctermfg=grey
+"highlight LineNr ctermfg=grey
 
 "- ClangFormatter - C family formatting -"	
 let g:clang_format#style_options = {
@@ -203,8 +207,9 @@ let g:clang_format#style_options = {
 nmap <C-f> :ClangFormat<CR>
 
 "- C ++ ColorSupport-"
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_experimental_simple_template_highlight = 1
+let g:chromatica#libclang_path='/usr/lib/llvm-3.9/lib'
 
 "-Neomake -"
 autocmd! BufWritePost * Neomake!
@@ -212,3 +217,10 @@ let g:neomake_verbose=3
 let g:neomake_open_list=2
 let g:neomake_cpp_enable_makers = ['clang']
 let g:neomake_cpp_clang_args = ["-std=c++11", "-Wextra", "-Wall", "-pedantic","-g"]
+
+"- Git tools -
+nnoremap <S-g>s :Gstatus<CR>
+nnoremap <S-g>a :Gwrite<CR>
+nnoremap <S-g>c :GCommit<CR>
+nnoremap <S-g>cs :Commits<CR>
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1

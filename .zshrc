@@ -131,6 +131,7 @@ alias copy="xclip -selection clipboard"
 alias moo="apt-get moo | head -n 6"
 alias wacce="cd ~/Dropbox/Computing/term1/Lab/wacc_examples"
 alias sdl="cd ~/github/gameOne/"
+alias tw="rainbowstream"
 #export VIMRUNTIME+=/usr/share/vim/vim80
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
