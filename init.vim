@@ -51,9 +51,11 @@ call plug#begin('~/.config/nvim/plugged')
   "Syntax
   "Haskell
   "Extra syntax highlightling
+  "Prolog
   Plug 'neovimhaskell/haskell-vim'
   Plug 'justinmk/vim-syntax-extra'
   Plug 'contactgsuraj/wacc_syntax'
+  Plug 'adimit/prolog.vim'
   "Plug 'octol/vim-cpp-enhanced-highlight' 
 
   "Clang Formatter
@@ -97,6 +99,7 @@ set splitbelow
 set splitright
 "This disables vim split lines
 set fillchars=""
+
 
 "- DeopleteMe -"	
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -224,3 +227,6 @@ nnoremap <S-g>a :Gwrite<CR>
 nnoremap <S-g>c :GCommit<CR>
 nnoremap <S-g>cs :Commits<CR>
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+"Prolog file type association
+au BufNewFile,BufRead *.pro set filetype=prolog

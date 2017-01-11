@@ -31,7 +31,7 @@ width = 1920
 height = 24
 ;offset_x = 0
 ;offset_y = 0
-background = #FF282828
+background = #FF262626
 foreground = #FFebdbb2
 ;linecolor = #ff0000
 

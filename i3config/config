@@ -48,6 +48,8 @@ bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -sidebar -mode-font "u
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+Tab workspace back_and_forth
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -161,6 +163,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #Limiting application windows to workspaces
+assign [class="ranger"] $workspace1
 assign [class="Nautilus"] $workspace1
 assign [class="Terminator"] $workspace2
 assign [class="Google-chrome"] $workspace3
@@ -169,10 +172,13 @@ assign [class="Firefox"] $workspace3
 assign [class="Spotify"] $workspace10
 for_window [class="Google-chrome"] move to workspace $workspace3
 #for_window [class="MuPDF"] move to workspace $workspace4
+#for_window [class="Terminator" instance="ranger"] floating enable
+for_window [class="Terminator" instance="ranger"] move to workspace $workspace1
 for_window [class="Firefox"] move to workspace $workspace3
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [class="Terminator" instance="cmus"] move to workspace $workspace9
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -207,7 +213,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Colour Configurations
-set $bg-color            #282828
+set $bg-color            #262626
 set $inactive-bg-color   #504945
 set $text-color          #fbf1c7
 set $inactive-text-color #676E7D
@@ -217,7 +223,7 @@ hide_edge_borders both
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $text-color        #98971a          $text-color          $text-color
+client.focused          $text-color        #83a598          $text-color          #83a598
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $bg-color
@@ -234,7 +240,7 @@ bar {
      mode invisible
      font xft:System San Francisco Display, FontAwesome 10
      colors {
-       background #282828
+       background #262626
          separator #757575
  #                  border             background         text
          focused_workspace  $bg-color          $bg-color          $text-color
@@ -246,6 +252,7 @@ bar {
 
 
 #Initiate hdmi output
+exec --no-startup-id terminator --classname="ranger" -e "ranger"
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms 
 exec --no-startup-id xset s noblank

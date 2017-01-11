@@ -95,7 +95,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pj="cd /home/suraj/Dropbox/Computing/pintos/"
+alias pj="cd /home/suraj/Dropbox/Computing/pintos/pintos-task0_sg6215/src/devices/"
 
 alias z="ranger"
 alias gst="git status"
@@ -123,7 +123,7 @@ alias darker="xbacklight -dec 15"
 alias wb="cd /home/suraj/github/personal_webpage/bower_components/bootstrap/dist/"
 alias clean="make clean"
 alias nyan="nyancat"
-alias color="~/color-scripts/color-scripts/space-invaders"
+alias color="~/color-scripts/pokescript.sh"
 alias ls="ls -a -F --color=auto --group-directories-first"
 alias re="reset"
 alias docssh="ssh sg6215@point54.doc.ic.ac.uk"
@@ -132,6 +132,11 @@ alias moo="apt-get moo | head -n 6"
 alias wacce="cd ~/Dropbox/Computing/term1/Lab/wacc_examples"
 alias sdl="cd ~/github/gameOne/"
 alias tw="rainbowstream"
+alias trc="vim ~/github/dotfiles/tmux.conf"
+alias noff="nmcli networking off"
+alias non="nmcli networking on"
+alias xx="exit"
+alias sicstus="rlwrap sicstus"
 #export VIMRUNTIME+=/usr/share/vim/vim80
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

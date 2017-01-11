@@ -2,11 +2,23 @@
   borderless = True
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   geometry_hinting = False
-  handle_size = 0
+  handle_size = 1
   hide_from_taskbar = True
-  inactive_color_offset = 0.89
+  inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+  title_inactive_bg_color = "#d23986"
+  title_receive_fg_color = "#ed5050"
+  title_transmit_fg_color = "#d05050"
 [keybindings]
   close_term = None
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  go_up = <Alt>k
+  resize_down = <Primary><Shift>j
+  resize_left = <Primary><Shift>h
+  resize_right = <Primary><Shift>l
+  resize_up = <Primary><Shift>k
   search = <Primary><Shift><Alt>f
   zoom_in = None
   zoom_out = None
@@ -21,7 +33,7 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#282828"
+    background_color = "#262626"
     background_darkness = 1.2
     background_image = None
     cursor_blink = False
@@ -29,10 +41,12 @@
     font = Cousine for Powerline 12
     foreground_color = "#ebdbb2"
     icon_bell = False
-    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#bdae93:#7c6f64:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    palette = "#262626:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#bdae93:#7c6f64:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+  [[New Profile]]
+    background_image = None
   [[default - TRU BACKUP]]
     background_color = "#2b2d2e"
     background_image = None
