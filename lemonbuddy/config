@@ -21,40 +21,35 @@ type = custom/text
 content =%{A:shutdown 0:} Shutdown%{A}  %{A:reboot:}Reboot%{A}  %{A:i3 exit:}Logout%{A}  %{A:~/github/Scripts/killPowerPromt.sh:}Exit%{A}
 content-foreground = #ebdbb2
 
-
 [bar/bar]
 clickareas = 35
-;monitor = eDP1
 bottom = false
 dock = false
 width = 1920
-height = 24
-;offset_x = 0
-;offset_y = 0
-background = #FF262626
-foreground = #FFebdbb2
+height = 30
+background = #CC282827
+foreground = #CCebdbb2
 ;linecolor = #ff0000
 
 spacing = 2
-lineheight = 2
+lineheight = 0
 
-;separator = |
+;separator = -
 
 ;locale = en_US.UTF-8
 
 padding_left = 2
-padding_right = 5
-module_margin_left = 0
-module_margin_right = 3
-module-margin-right = 3
+padding_right = 2
+module-margin-right = 2
+module-margin-left = 2
 
-font-0 = DroidSansMono:size=10:weight=medium;0
+font-0 = Hack:size=9:weight=medium;0
 font-1 = MaterialIcons:size=10;0
 font-2 = FontAwesome:size=11:weight=medium;0
 
-modules-left = i3
-modules-center = 
-modules-right = dropbox volume wifiScript battery date clock power whitespace
+modules-left = i3 whitespace
+modules-center = dateTimeThing
+modules-right = dropbox volume battery power whitespace
 
 [module/battery]
 type = internal/battery
@@ -76,12 +71,12 @@ ramp-capacity-4 = 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
 format-full-foreground = #fbf1c7
-format-full-underline = #98971a
+;format-full-underline = #98971a
 format-charging-foreground = #fbf1c7
-format-discharging-underline = #b8bb26
-format-charging-underline = #b8bb26
+;format-discharging-underline = #b8bb26
+;format-charging-underline = #b8bb26
 bar-capacity-empty-foreground = #cc241d
-format-empty-underline = #cc241d
+;format-empty-underline = #cc241d
 bar-capacity-fill = █
 bar-capacity-fill-font = 2
 bar-capacity-empty = █
@@ -108,24 +103,32 @@ animation-charging-framerate = 750
 [module/dropbox]
 type = custom/script
 exec = ~/github/Scripts/dropboxStatus.sh
-format-underline = #458588
+;format-underline = #458588
 click-left = dropbox start
+click-right = dropbox stop
 interval=2
 [module/power]
 type = custom/text
 ;content = %{A:terminator:}{%A}
-content = %{A:lemonbuddy powerpopup:}%{A} 
+content = %{A:lemonbuddy powerpopup:}%{A} 
 format-foreground = #d5c4a1
 [module/clock]
 type = internal/date
 date =  %H:%M 
 format-foreground = #fbf1c7
-format-underline  = #FFfabd2f
+;format-underline  = #FFfabd2f
 format = <date>
 
 [module/date]
 type = internal/date
 date =  %b %d   
+format-foreground = #fbf1c7
+;format-underline  = #FF8ec07c
+format = <date>
+
+[module/dateTimeThing]
+type = internal/date
+date = %d %b %H:%M
 format-foreground = #fbf1c7
 format-underline  = #FF8ec07c
 format = <date>
@@ -139,10 +142,8 @@ headphone_control_numid = 19
 
 format-volume-foreground = #fbf1c7
 format-muted-foreground = #fbf1c7
-format-volume-underline = #9d6294
+;format-volume-underline = #9d6294
 format-muted-underline = #cc241d
-; format-muted-background = #933484
-; format-muted-overline = #9d6294
 
 label-volume =  %percentage%
 label-muted =   0% 
@@ -180,7 +181,6 @@ label-focused = %index%
 label-focused-foreground = #fffabd2f
 label-unfocused-foreground = #ccfabd2f
 label-focused-background = #cc504945
-;label-focused-underline= #ccfabd2f
 
 label-focused-padding = 2
 

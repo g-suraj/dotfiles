@@ -1,4 +1,4 @@
-"- Neovim Python host -"
+" Neovim Python host -"
 let g:python_host_prog  = '/usr/bin/python2'
 let g:python3_host_prog  = '/usr/bin/python3'
 
@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Tim Pope
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-obsession'
 
   " LaTeX Plugins
   Plug 'lervag/vimtex'
@@ -28,6 +29,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'shinchu/lightline-gruvbox.vim'
   Plug 'arakashic/chromatica.nvim'
+  Plug 'junegunn/seoul256.vim'
 
   " Fuzzy searchers
   " NerdTree
@@ -61,6 +63,13 @@ call plug#begin('~/.config/nvim/plugged')
   "Clang Formatter
   Plug 'rhysd/vim-clang-format'
 
+  " Goyo
+  Plug 'junegunn/goyo.vim'
+
+  "Tmux plugins
+  Plug 'christoomey/vim-tmux-navigator'
+
+
 call plug#end()
 
 "- General -"	
@@ -69,7 +78,9 @@ set undofile
 set undodir=~/.vim/undodir
 syntax on
 imap jk <Esc>
-imap <C-c> //jka
+imap Jk <Esc>
+imap JK <Esc>
+imap <C-c> /**/jkhha
 set noswapfile
 nmap <S-Enter> O<Esc>
 command! W w
@@ -127,7 +138,7 @@ set clipboard=unnamedplus
 set cursorline
 set number
 filetype indent on
-set lazyredraw
+"set lazyredraw
 set showmatch
 nnoremap j gj
 nnoremap k gk
@@ -214,12 +225,12 @@ nmap <C-f> :ClangFormat<CR>
 "let g:cpp_experimental_simple_template_highlight = 1
 let g:chromatica#libclang_path='/usr/lib/llvm-3.9/lib'
 
-"-Neomake -"
+"- Neomake -"
 autocmd! BufWritePost * Neomake!
 let g:neomake_verbose=3
 let g:neomake_open_list=2
-let g:neomake_cpp_enable_makers = ['clang']
-let g:neomake_cpp_clang_args = ["-std=c++11", "-Wextra", "-Wall", "-pedantic","-g"]
+let g:neomake_cpp_enable_makers=['clang']
+let g:neomake_cpp_clang_args=["-std=c++11", "-Wextra", "-Wall", "-pedantic","-g"]
 
 "- Git tools -
 nnoremap <S-g>s :Gstatus<CR>
@@ -230,3 +241,13 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 "Prolog file type association
 au BufNewFile,BufRead *.pro set filetype=prolog
+
+"- Goyo -"
+" Width
+let g:goyo_width = 80
+let g:goyo_height = 100
+nnoremap <C-g>g :Goyo<CR>
+nnoremap <C-g>G :Goyo!<CR>
+
+"- Tmux Shit -"
+let g:tmux_navigator_save_on_switch = 2

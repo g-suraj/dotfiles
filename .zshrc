@@ -95,7 +95,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pj="cd /home/suraj/Dropbox/Computing/pintos/pintos-task0_sg6215/src/devices/"
+alias pj="cd /home/suraj/Dropbox/Computing/pintos/pintos_30"
 
 alias z="ranger"
 alias gst="git status"
@@ -104,8 +104,8 @@ alias commit="git commit"
 alias push="git push"
 alias pull="git pull"
 alias merge="git merge"
-alias cdhome="cd ~/Dropbox/Computing/Year\ 1"
 alias v="nvim"
+alias vi="nvim"
 alias vim="nvim"
 alias inst="sudo apt install"
 alias lyrics="cmus-lyrics"
@@ -135,8 +135,17 @@ alias tw="rainbowstream"
 alias trc="vim ~/github/dotfiles/tmux.conf"
 alias noff="nmcli networking off"
 alias non="nmcli networking on"
-alias xx="exit"
 alias sicstus="rlwrap sicstus"
+alias home="cd ~/Dropbox/Computing/term2/"
+alias h="cd ~/Dropbox/Computing/term2/"
+alias branch="git branch"
+alias mkboff="xinput float 15 ;xinput float 14;"
+alias mkbon="xinput reattach 15 3 ;xinput reattach 14 2;"
+alias xx="tmux detach"
 #export VIMRUNTIME+=/usr/share/vim/vim80
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+case $- in *i*)
+    [ -z "$TMUX" ] && tmux attach -t suraj
+esac

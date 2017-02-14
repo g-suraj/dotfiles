@@ -30,7 +30,8 @@ font pango:System San Francisco Display 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec terminator 
+# -e "tmux -2"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -102,10 +103,9 @@ bindsym $mod+a focus parent
 
 #Gaps configuration
 
-gaps inner 6
-gaps outer 2 
-smart_gaps on
-
+#gaps inner 5
+gaps outer 10
+#smart_gaps on
 bindsym $mod+Shift+g mode "$mode_gaps_outer"
 set $mode_gaps_outer Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 mode "$mode_gaps_outer" {
@@ -127,16 +127,16 @@ bindsym $mod+mod1+Right workspace next
 
 
 # Defining workspace functions
-set $workspace1  "1  "
-set $workspace2  "2  "
-set $workspace3  "3  "
-set $workspace4  "4  "
-set $workspace5  "5  "
-set $workspace6  "6  "
-set $workspace7  "7  "
-set $workspace8  "8  "
-set $workspace9  "9  "
-set $workspace10 "0  "
+set $workspace1  "1"
+set $workspace2  "2"
+set $workspace3  "3"
+set $workspace4  "4"
+set $workspace5  "5"
+set $workspace6  "6"
+set $workspace7  "7"
+set $workspace8  "8"
+set $workspace9  "9"
+set $workspace10 "0"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -166,11 +166,11 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="ranger"] $workspace1
 assign [class="Nautilus"] $workspace1
 assign [class="Terminator"] $workspace2
-assign [class="Google-chrome"] $workspace3
+assign [class="Vivaldi-stable"] $workspace3
 #assign [class="MuPDF"] $workspace4
 assign [class="Firefox"] $workspace3
 assign [class="Spotify"] $workspace10
-for_window [class="Google-chrome"] move to workspace $workspace3
+for_window [class="Vivaldi-stable"] move to workspace $workspace3
 #for_window [class="MuPDF"] move to workspace $workspace4
 #for_window [class="Terminator" instance="ranger"] floating enable
 for_window [class="Terminator" instance="ranger"] move to workspace $workspace1
@@ -223,7 +223,7 @@ hide_edge_borders both
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $text-color        #83a598          $text-color          #83a598
+client.focused          $text-color        #b16286          $text-color          #b16286
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $bg-color
@@ -252,7 +252,7 @@ bar {
 
 
 #Initiate hdmi output
-exec --no-startup-id terminator --classname="ranger" -e "ranger"
+#exec --no-startup-id terminator --classname="ranger" -e "ranger ~/Dropbox/Computing/"
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms 
 exec --no-startup-id xset s noblank
@@ -267,8 +267,9 @@ exec --no-startup-id compton -f -C
 exec --no-startup-id lemonbuddy bar 
 
 #Initiate i3lock
-bindsym $mod+shift+x exec lock -p --font "System San Francisco Display "
+bindsym $mod+shift+x exec /usr/local/bin/lock_suraj
 #Rofi instead of dmenu is being triggered
+bindsym $mod+shift+z exec terminator --classname="ranger" -e "ranger ~/Dropbox/Computing/"
 
 #Set wallpaper
 #Flowers
@@ -281,19 +282,20 @@ bindsym $mod+shift+x exec lock -p --font "System San Francisco Display "
 #exec_always feh --bg-fill ~/Pictures/forest.jpg 
 #leaves
 #exec_always feh --bg-fill ~/Pictures/leaves2.jpg
-exec_always feh --bg-fill ~/Pictures/feh.png
+#exec_always feh --bg-fill ~/Pictures/feh.png
+exec_always feh --bg-fill ~/Pictures/pttn1.png
 
 #Always keep filesystem open
 
 ### Media Controls ##
 #Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
