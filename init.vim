@@ -186,6 +186,7 @@ let NERDTreeQuitOnOpen=1
 set incsearch           " search as characters are entered
 set hlsearch " highlight matches
 
+
 "- UltiSnps -"	
 
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -217,7 +218,7 @@ let g:clang_format#style_options = {
             \ "AllowShortLoopsOnASingleLine" : "false",
             \ "AllowShortBlocksOnASingleLine" : "false",
             \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "ColumnLimit" : "120"}
+            \ "ColumnLimit" : "79"}
 nmap <C-f> :ClangFormat<CR>
 
 "- C ++ ColorSupport-"
@@ -226,7 +227,7 @@ nmap <C-f> :ClangFormat<CR>
 let g:chromatica#libclang_path='/usr/lib/llvm-3.9/lib'
 
 "- Neomake -"
-autocmd! BufWritePost * Neomake!
+autocmd! BufWritePost *.cpp *.c Neomake!
 let g:neomake_verbose=3
 let g:neomake_open_list=2
 let g:neomake_cpp_enable_makers=['clang']
@@ -241,6 +242,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 "Prolog file type association
 au BufNewFile,BufRead *.pro set filetype=prolog
+au BufNewFile,BufRead *.pl set filetype=prolog
 
 "- Goyo -"
 " Width
@@ -251,3 +253,16 @@ nnoremap <C-g>G :Goyo!<CR>
 
 "- Tmux Shit -"
 let g:tmux_navigator_save_on_switch = 2
+
+"- Vim spelling -"
+au BufNewFile,BufRead *.tex set spell spelllang=en_gb
+
+"Tex file cleaner
+autocmd! BufWritePost *.tex :normal mzgg=G`z
+
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://sunaku.github.io/vim-256color-bce.html
+    set t_ut=
+endif

@@ -1,6 +1,6 @@
 [bar/powerpopup]
 clickareas = 4
-background = #FF282827
+background = #00fbf1c7
 foreground = #FFebdbb2
 width = 388
 height = 8%
@@ -8,7 +8,7 @@ offset-x = 766
 offset-y = 497
 dock = true
 padding = 3
-border-color = #FFfbf1c7
+border-color = #44ebdbb2
 border-size = 1
 
 font-0 = Hack:size=11:weight=medium;0
@@ -26,8 +26,8 @@ clickareas = 35
 bottom = false
 dock = false
 width = 1920
-height = 30
-background = #CC282827
+height = 28
+background = #11282828
 foreground = #CCebdbb2
 ;linecolor = #ff0000
 
@@ -70,9 +70,9 @@ ramp-capacity-4 = 
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-format-full-foreground = #fbf1c7
+format-full-foreground = #ffebdbb2
 ;format-full-underline = #98971a
-format-charging-foreground = #fbf1c7
+format-charging-foreground = #ffebdbb2
 ;format-discharging-underline = #b8bb26
 ;format-charging-underline = #b8bb26
 bar-capacity-empty-foreground = #cc241d
@@ -111,7 +111,7 @@ interval=2
 type = custom/text
 ;content = %{A:terminator:}{%A}
 content = %{A:lemonbuddy powerpopup:}%{A} 
-format-foreground = #d5c4a1
+format-foreground = #ebdbb2
 [module/clock]
 type = internal/date
 date =  %H:%M 
@@ -129,7 +129,7 @@ format = <date>
 [module/dateTimeThing]
 type = internal/date
 date = %d %b %H:%M
-format-foreground = #fbf1c7
+format-foreground = #ffebdbb2
 format-underline  = #FF8ec07c
 format = <date>
 
@@ -140,8 +140,8 @@ speaker_mixer = Speaker
 headphone_mixer = Headphone
 headphone_control_numid = 19
 
-format-volume-foreground = #fbf1c7
-format-muted-foreground = #fbf1c7
+format-volume-foreground = #ffebdbb2
+format-muted-foreground = #ffebdbb2
 ;format-volume-underline = #9d6294
 format-muted-underline = #cc241d
 

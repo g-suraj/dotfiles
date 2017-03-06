@@ -14,10 +14,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar{} block below.
 font pango:System San Francisco Display 10
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# This font is widely installed, provides lots of unicode glyphs, right-to-left text rendering and scalability on retina/hidpi displays (thanks to pango).  font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +27,7 @@ font pango:System San Francisco Display 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator 
+bindsym $mod+Return exec st 
 # -e "tmux -2"
 
 # kill focused window
@@ -103,7 +100,7 @@ bindsym $mod+a focus parent
 
 #Gaps configuration
 
-#gaps inner 5
+gaps inner 3
 gaps outer 10
 #smart_gaps on
 bindsym $mod+Shift+g mode "$mode_gaps_outer"
@@ -177,7 +174,9 @@ for_window [class="Terminator" instance="ranger"] move to workspace $workspace1
 for_window [class="Firefox"] move to workspace $workspace3
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [class="Terminator" instance="cmus"] move to workspace $workspace9
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 0
+#For boder colors
+#for_window [class="^.*"] border pixel 2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -218,12 +217,13 @@ set $inactive-bg-color   #504945
 set $text-color          #fbf1c7
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
+set $cheeky              #282828
 
 hide_edge_borders both
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $text-color        #b16286          $text-color          #b16286
+client.focused          $text-color        $cheeky            $text-color          $cheeky
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $bg-color
@@ -262,9 +262,12 @@ exec_always --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 exec --no-startup-id xinput set-prop 10 'Device Enabled' 0 
 exec --no-startup-id fluxgui
-exec --no-startup-id compton -f -C
+exec --no-startup-id compton --config ~/.config/compton.conf
 
 exec --no-startup-id lemonbuddy bar 
+exec --no-startup-id redshift -b 1:1 -l geoclue2 -t 6500:3500 
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 #Initiate i3lock
 bindsym $mod+shift+x exec /usr/local/bin/lock_suraj
@@ -283,7 +286,9 @@ bindsym $mod+shift+z exec terminator --classname="ranger" -e "ranger ~/Dropbox/C
 #leaves
 #exec_always feh --bg-fill ~/Pictures/leaves2.jpg
 #exec_always feh --bg-fill ~/Pictures/feh.png
-exec_always feh --bg-fill ~/Pictures/pttn1.png
+#exec_always feh --bg-fill ~/Pictures/pttn3.png
+#exec_always feh --bg-fill ~/Pictures/felt.png
+exec_always feh --bg-tile ~/Downloads/dark_wall.png
 
 #Always keep filesystem open
 
