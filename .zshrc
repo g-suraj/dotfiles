@@ -10,15 +10,7 @@ export ZSH=/home/suraj/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="sunaku"
-#ZSH_THEME="sunrise"
-#ZSH_THEME="blinks"
-#ZSH_THEME="powerlevel9k"
-ZSH_THEME="terminalparty"
-#ZSH_THEME="geometry"
-#ZSH_THEME="minimal"
-#ZSH_THEME="arrow"
+ZSH_THEME="minimaleparty"
 
 
 # Uncomment the following line to use case-sensitive completion.
