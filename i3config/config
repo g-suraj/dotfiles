@@ -101,7 +101,7 @@ bindsym $mod+a focus parent
 #Gaps configuration
 
 gaps inner 3
-gaps outer 10
+gaps outer 15
 #smart_gaps on
 bindsym $mod+Shift+g mode "$mode_gaps_outer"
 set $mode_gaps_outer Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -272,7 +272,7 @@ exec --no-startup-id setxkbmap -option ctrl:nocaps
 #Initiate i3lock
 bindsym $mod+shift+x exec /usr/local/bin/lock_suraj
 #Rofi instead of dmenu is being triggered
-bindsym $mod+shift+z exec terminator --classname="ranger" -e "ranger ~/Dropbox/Computing/"
+bindsym $mod+shift+z exec st -e ranger ~/Dropbox/Computing/term2
 
 #Set wallpaper
 #Flowers

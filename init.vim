@@ -36,7 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
-  "Plug 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
 
   " Supertab
   Plug 'ervandew/supertab'
@@ -70,6 +70,8 @@ call plug#begin('~/.config/nvim/plugged')
   "Tmux plugins
   Plug 'christoomey/vim-tmux-navigator'
 
+  " Work analytics
+  Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -209,8 +211,8 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 "- NerdTree -"
-"map <C-n> :NERDTreeToggle<CR>
-nnoremap <C-n> :FZF<CR>
+map <C-n> :NERDTreeToggle<CR>
+"nnoremap <C-n> :FZF<CR>
 let NERDTreeQuitOnOpen=1
 
 "- Searching -"	
