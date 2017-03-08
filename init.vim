@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
   " NerdTree
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'airblade/vim-rooter'
   "Plug 'scrooloose/nerdtree'
 
   " Supertab
@@ -158,8 +159,38 @@ set background=dark
 "- lightline -"	
 set laststatus=2
 " set lighline theme
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+""let g:lightline = {}
+""let g:lightline.colorscheme = 'gruvbox'
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+"function! LightlineFugitive()
+"  return exists('*fugitive#head') ? fugitive#head() : ''
+"endfunction
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
+
 
 "- FZF -"	
 nnoremap <C-P> :FZF<CR>
@@ -227,7 +258,7 @@ nmap <C-f> :ClangFormat<CR>
 let g:chromatica#libclang_path='/usr/lib/llvm-3.9/lib'
 
 "- Neomake -"
-autocmd! BufWritePost *.cpp *.c Neomake!
+autocmd! BufWritePost *.cpp *.c Neomake! %
 let g:neomake_verbose=3
 let g:neomake_open_list=2
 let g:neomake_cpp_enable_makers=['clang']
@@ -266,3 +297,7 @@ if &term =~ '256color'
     " see also http://sunaku.github.io/vim-256color-bce.html
     set t_ut=
 endif
+
+"Vim Rooter"
+let g:rooter_patterns = ['Rakefile', '.git/']
+
