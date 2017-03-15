@@ -96,6 +96,7 @@ alias commit="git commit"
 alias push="git push"
 alias pull="git pull"
 alias merge="git merge"
+alias sudo vim="sudo nvim"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
@@ -137,6 +138,7 @@ alias xx="tmux detach"
 alias fame="git-fame"
 alias log="git log --oneline --graph"
 alias clock="tmux clock-mode"
+alias man="vman"
 #export VIMRUNTIME+=/usr/share/vim/vim80
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -144,3 +146,11 @@ alias clock="tmux clock-mode"
 case $- in *i*)
     [ -z "$TMUX" ] && tmux attach -t suraj
 esac
+
+vman() {
+  vim -c "SuperMan $*"
+
+  if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+  fi
+}
