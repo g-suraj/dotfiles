@@ -11,7 +11,7 @@ let g:deoplete#sources#clang#clang_header ="/usr/lib/llvm-3.9/lib/clang/"
 set laststatus=2
 " set lighline theme
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'base16',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -25,8 +25,6 @@ let g:lightline = {
       \ 'component_function': {
       \   'fugitive': 'LightlineFugitive',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 "-- FZF --"
@@ -99,6 +97,20 @@ let g:goyo_height = 100
 
 "-- Tmux --"
 let g:tmux_navigator_save_on_switch = 2
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'c'    : '#H',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '%A,%k:%M%p',
+      \'z'    : '#H' }
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
 
 "-- Vim Rooter --"
 let g:rooter_patterns = ['Rakefile', '.git/']

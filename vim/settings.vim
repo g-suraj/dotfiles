@@ -20,6 +20,7 @@ set nopaste
 set clipboard=unnamedplus
 set cursorline
 set number
+set numberwidth=4
 filetype indent on
 
 " This does not work.
