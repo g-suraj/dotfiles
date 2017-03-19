@@ -13,6 +13,9 @@ Plug 'neomake/neomake'
 "-- Tim Pope --"
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
 
 "-- LaTeX Plugins --"
@@ -22,12 +25,14 @@ Plug 'lervag/vimtex'
 "-- Colour Schemes, C++ Colors, lightline --"
 Plug 'jacoborus/tender'
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'arakashic/chromatica.nvim'
 Plug 'junegunn/seoul256.vim'
 Plug 'chriskempson/base16-vim'
+
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'daviesjamie/vim-base16-lightline'
+Plug 'taohex/lightline-buffer'
 
 
 "-- Fuzzy searcher and NerdTree --"
@@ -36,6 +41,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 
 
 "-- Supertab --"
@@ -79,8 +86,9 @@ Plug 'wakatime/vim-wakatime'
 Plug 'airblade/vim-gitgutter'
 
 
-"-- Automatic parenthesis closing --"
+"-- Automatic parenthesis closing and other matching --"
 Plug 'Raimondi/delimitMate'
+Plug 'Valloric/MatchTagAlways'
 set matchpairs+=<:>
 
 
@@ -102,9 +110,16 @@ Plug 'vim-scripts/a.vim'
 Plug 'jez/vim-superman'
 
 
-"-- Vim Bufferline --"
-"Plug 'bling/vim-bufferline'
-"Plug 'mgee/lightline-bufferline'
+"-- Coloresque CSS helper --"
+Plug 'gorodinskiy/vim-coloresque'
+
+
+"-- Tabs view --"
+Plug 'Yggdroot/indentLine'
+
+
+"Buffer madnessh
+Plug 'mhinz/vim-sayonara'
 
 
 call plug#end()

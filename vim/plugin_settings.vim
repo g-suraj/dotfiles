@@ -8,23 +8,42 @@ let g:deoplete#sources#clang#libclang_path = "/usr/lib/llvm-3.9/lib/libclang.so"
 let g:deoplete#sources#clang#clang_header ="/usr/lib/llvm-3.9/lib/clang/"
 
 "-- Lightline --"
-set laststatus=2
 " set lighline theme
 let g:lightline = {
       \   'colorscheme': 'base16',
+      \   'tabline': {
+      \     'left': [ [ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+      \     'right': [ [ 'bufferstext' ], ],
+      \   },
       \   'active': {
-      \     'left': [ [ 'mode', 'paste' ],
-      \               [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
       \   },
       \   'component': {
-      \     'readonly': '%{&readonly?"":""}',
-      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \     'bufferstext':"buffers"
+      \   },
+      \   'component_expand': {
+      \     'buffercurrent': 'lightline#buffer#buffercurrent2',
+      \   },
+      \   'component_type': {
+      \     'buffercurrent': 'tabsel',
       \   },
       \   'component_function': {
+      \     'modified': 'LightlineModified',
+      \     'readonly': 'LightlineReadonly',
+      \     'filename': 'LightlineFilename',
+      \     'fileformat': 'LightlineFileformat',
+      \     'filetype': 'LightlineFiletype',
+      \     'fileencoding': 'LightlineFileencoding',
+      \     'mode': 'LightlineMode',
+      \     'ntree': 'MyLightLinePercent',
+      \     'lineinfo': 'MyLightLineLineInfo',
+      \     'bufferbefore': 'lightline#buffer#bufferbefore',
+      \     'bufferafter': 'lightline#buffer#bufferafter',
+      \     'bufferinfo': 'lightline#buffer#bufferinfo',
       \     'fugitive': 'LightlineFugitive',
       \   },
       \ }
-
 
 "-- FZF --"
 let g:fzf_colors =
@@ -50,10 +69,22 @@ let g:fzf_action = {
 "autocmd VimEnter * TagbarOpen
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
+let g:NERDTreeWinSize=40
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 "nnoremap <C-n> :FZF<CR>
 "let NERDTreeQuitOnOpen=1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "+",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "*",
+    \ "Renamed"   : "~",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "x",
+    \ "Dirty"     : "!!",
+    \ "Clean"     : "",
+    \ "Unknown"   : "?"
+    \ }
 
 "-- UltiSnps --"
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -127,3 +158,10 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 "-- Uncomment to open tagbar automatically whenever possible --"
 " autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+"-- Indentation --"
+let g:indentLine_color_term = 239
+let g:indentLine_char = '│'
+
+"-- Delimit / Matching --"
+let g:mta_use_matchparen_group = 1

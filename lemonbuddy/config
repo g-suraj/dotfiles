@@ -23,10 +23,10 @@ content-foreground = #c0c5ce
 
 [bar/bar]
 clickareas = 35
-bottom = true
+bottom = false
 dock = false
 width = 1920
-height = 14
+height = 20
 background = #FF2b303b
 foreground = #CCc0c5ce
 ;linecolor = #ff0000
@@ -43,7 +43,7 @@ padding_right = 1
 module-margin-right = 1
 module-margin-left = 1
 
-font-0 = Hack:size=8:weight=medium;0
+font-0 = Hack:size=9:weight=medium;0
 font-1 = MaterialIcons:size=9;0
 font-2 = FontAwesome:size=9:weight=medium;0
 
@@ -170,19 +170,19 @@ label-focused-foreground = #ff2b303b
 label-unfocused-foreground = #ccc0c5ce
 label-focused-background = #ffa16946
 
-label-focused-padding = 1
+label-focused-padding = 2
 
 label-unfocused = %index%
-label-unfocused-padding = 1
+label-unfocused-padding = 2
 
 label-urgent = %index%
 ;label-urgent-background = #fb4914
 label-urgent-foreground = #fb4914
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 label-visible = %index%
 label-visible-foreground = #444
-label-visible-padding = 1
+label-visible-padding = 2
 
 
 

@@ -14,6 +14,9 @@ source ~/github/dotfiles/vim/colours.vim
 ""-- Key Mappings --"
 source ~/github/dotfiles/vim/mappings.vim
 
+""-- Commands --"
+source ~/github/dotfiles/vim/commands.vim
+
 "-- Vim Editor Settings --"
 source ~/github/dotfiles/vim/settings.vim
 
