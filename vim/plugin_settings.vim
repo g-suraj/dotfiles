@@ -11,21 +11,20 @@ let g:deoplete#sources#clang#clang_header ="/usr/lib/llvm-3.9/lib/clang/"
 set laststatus=2
 " set lighline theme
 let g:lightline = {
-      \ 'colorscheme': 'base16',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
-      \ },
+      \   'colorscheme': 'base16',
+      \   'active': {
+      \     'left': [ [ 'mode', 'paste' ],
+      \               [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \   },
+      \   'component': {
+      \     'readonly': '%{&readonly?"":""}',
+      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \   },
+      \   'component_function': {
+      \     'fugitive': 'LightlineFugitive',
+      \   },
       \ }
+
 
 "-- FZF --"
 let g:fzf_colors =
@@ -41,6 +40,10 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 "-- NerdTree --"
 "-- Uncomment below to auto open tags/NerdTree --"
@@ -98,19 +101,12 @@ let g:goyo_height = 100
 "-- Tmux --"
 let g:tmux_navigator_save_on_switch = 2
 let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'c'    : '#H',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'x'    : '%A,%k:%M%p',
+      \'a'    : '#S  ',
+      \'win'  : '#W',
+      \'cwin' : '#W',
       \'z'    : '#H' }
-let g:tmuxline_separators = {
-    \ 'left' : '',
-    \ 'left_alt': '',
-    \ 'right' : '',
-    \ 'right_alt' : '',
-    \ 'space' : ' '}
 
 "-- Vim Rooter --"
 let g:rooter_patterns = ['Rakefile', '.git/']
@@ -131,4 +127,3 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 "-- Uncomment to open tagbar automatically whenever possible --"
 " autocmd BufEnter * nested :call tagbar#autoopen(0)
-

@@ -91,7 +91,7 @@ Plug 'craigemery/vim-autotag'
 "--  Vim IDE environment --"
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 
 
 "--  Automatic Header file opening --"
@@ -100,5 +100,11 @@ Plug 'vim-scripts/a.vim'
 
 "-- Man pages --"
 Plug 'jez/vim-superman'
+
+
+"-- Vim Bufferline --"
+"Plug 'bling/vim-bufferline'
+"Plug 'mgee/lightline-bufferline'
+
 
 call plug#end()

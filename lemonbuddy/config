@@ -1,37 +1,37 @@
 [bar/powerpopup]
 clickareas = 4
-background = #00fbf1c7
-foreground = #FFebdbb2
+background = #EE2b303b
+foreground = #FFc0c5ce
 width = 388
 height = 8%
 offset-x = 766
 offset-y = 497
 dock = true
 padding = 3
-border-color = #44ebdbb2
+border-color = #44c0c5ce
 border-size = 1
 
-font-0 = Hack:size=11:weight=medium;0
-font-1 = FontAwesome:size=11:weight=medium;0
+font-0 = Hack:size=10:weight=medium;0
+font-1 = FontAwesome:size=10:weight=medium;0
 modules-center = options
 format-underline = #fabd2f
 
 [module/options]
 type = custom/text
 content =%{A:shutdown 0:} Shutdown%{A}  %{A:reboot:}Reboot%{A}  %{A:i3 exit:}Logout%{A}  %{A:~/github/Scripts/killPowerPromt.sh:}Exit%{A}
-content-foreground = #ebdbb2
+content-foreground = #c0c5ce
 
 [bar/bar]
 clickareas = 35
-bottom = false
+bottom = true
 dock = false
 width = 1920
-height = 28
-background = #11282828
-foreground = #CCebdbb2
+height = 14
+background = #FF2b303b
+foreground = #CCc0c5ce
 ;linecolor = #ff0000
 
-spacing = 2
+spacing = 1
 lineheight = 0
 
 ;separator = -
@@ -39,17 +39,17 @@ lineheight = 0
 ;locale = en_US.UTF-8
 
 padding_left = 2
-padding_right = 2
-module-margin-right = 2
-module-margin-left = 2
+padding_right = 1
+module-margin-right = 1
+module-margin-left = 1
 
-font-0 = Hack:size=9:weight=medium;0
-font-1 = MaterialIcons:size=10;0
-font-2 = FontAwesome:size=11:weight=medium;0
+font-0 = Hack:size=8:weight=medium;0
+font-1 = MaterialIcons:size=9;0
+font-2 = FontAwesome:size=9:weight=medium;0
 
 modules-left = i3 whitespace
-modules-center = dateTimeThing
-modules-right = dropbox volume battery power whitespace
+modules-center =
+modules-right = dropbox volume battery dateTimeThing power whitespace
 
 [module/battery]
 type = internal/battery
@@ -58,9 +58,9 @@ adapter = AC
 full-at = 98
 format-battery-padding = 30
 
-format-charging = <animation-charging> <label-charging>  
-format-discharging = <ramp-capacity> <label-discharging>  
-format-full = <ramp-capacity> <label-full>  
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -70,9 +70,9 @@ ramp-capacity-4 = 
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-format-full-foreground = #ffebdbb2
+format-full-foreground = #ffc0c5ce
 ;format-full-underline = #98971a
-format-charging-foreground = #ffebdbb2
+format-charging-foreground = #ffc0c5ce
 ;format-discharging-underline = #b8bb26
 ;format-charging-underline = #b8bb26
 bar-capacity-empty-foreground = #cc241d
@@ -108,20 +108,21 @@ click-left = dropbox start
 click-right = dropbox stop
 interval=2
 [module/power]
+padding_right = 15
 type = custom/text
 ;content = %{A:terminator:}{%A}
-content = %{A:lemonbuddy powerpopup:}%{A} 
-format-foreground = #ebdbb2
+content = %{A:lemonbuddy powerpopup:}%{A}
+format-foreground = #c0c5ce
 [module/clock]
 type = internal/date
-date =  %H:%M 
+date =  %H:%M
 format-foreground = #fbf1c7
 ;format-underline  = #FFfabd2f
 format = <date>
 
 [module/date]
 type = internal/date
-date =  %b %d   
+date =  %b %d
 format-foreground = #fbf1c7
 ;format-underline  = #FF8ec07c
 format = <date>
@@ -129,7 +130,7 @@ format = <date>
 [module/dateTimeThing]
 type = internal/date
 date = %d %b %H:%M
-format-foreground = #ffebdbb2
+format-foreground = #ffc0c5ce
 format-underline  = #FF8ec07c
 format = <date>
 
@@ -140,30 +141,17 @@ speaker_mixer = Speaker
 headphone_mixer = Headphone
 headphone_control_numid = 19
 
-format-volume-foreground = #ffebdbb2
-format-muted-foreground = #ffebdbb2
+format-volume-foreground = #ffc0c5ce
+format-muted-foreground = #ffc0c5ce
 ;format-volume-underline = #9d6294
 format-muted-underline = #cc241d
 
 label-volume =  %percentage%
-label-muted =   0% 
-
-[module/backlight]
-type = internal/xbacklight
-format = <label> 
-format-foreground = #fbf1c7
-
-label =   %percentage%
-
-; Only applies if <bar> is used
-bar-width = 8
-bar-indicator = |
-bar-fill = ─
-bar-empty = ─
+label-muted =   0%
 
 [module/wifiScript]
-type = custom/script  
-exec = ~/github/Scripts/WifiScript.sh 
+type = custom/script
+exec = ~/github/Scripts/WifiScript.sh
 format-underline = #83a598
 tail = false
 maxlen = 100
@@ -178,22 +166,23 @@ strip-wsnumbers = true
 wsname-maxlen = 5
 
 label-focused = %index%
-label-focused-foreground = #fffabd2f
-label-unfocused-foreground = #ccfabd2f
-label-focused-background = #cc504945
+label-focused-foreground = #ff2b303b
+label-unfocused-foreground = #ccc0c5ce
+label-focused-background = #ffa16946
 
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 label-urgent = %index%
-label-urgent-background = #fb4934
-label-urgent-padding = 2
+;label-urgent-background = #fb4914
+label-urgent-foreground = #fb4914
+label-urgent-padding = 1
 
 label-visible = %index%
 label-visible-foreground = #444
-label-visible-padding = 2
+label-visible-padding = 1
 
 
 

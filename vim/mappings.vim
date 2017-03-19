@@ -3,10 +3,14 @@ no <Down> <Nop>
 no <Up> <Nop>
 no <Left> <Nop>
 no <Right> <Nop>
-nno <Down> <Nop>
-nno <Up> <Nop>
-nno <Left> <Nop>
-nno <Right> <Nop>
+ino <Down> <Nop>
+ino <Up> <Nop>
+ino <Left> <Nop>
+ino <Right> <Nop>
+vno <Down> <Nop>
+vno <Up> <Nop>
+vno <Left> <Nop>
+vno <Right> <Nop>
 
 "-- Basic sanity checks --"
 imap jk <Esc>
@@ -76,7 +80,7 @@ nnoremap <S-g>c :GCommit<CR>
 nnoremap <S-g>cs :Commits<CR>
 
 "-- Tagbar --"
-nmap <silent> <C-S-B> :TagbarToggle<CR>
+"nmap <silent> <C-S-B> :TagbarToggle<CR>
 
 "-- Tex file cleaner --"
 autocmd! BufWritePost *.tex :normal mzgg=G`z

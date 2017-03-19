@@ -25,9 +25,10 @@ font pango:System San Francisco Display 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+floating_minimum_size 1080 x 720
 
 # start a terminal
-bindsym $mod+Return exec st 
+bindsym $mod+Return exec st
 # -e "tmux -2"
 
 # kill focused window
@@ -100,8 +101,8 @@ bindsym $mod+a focus parent
 
 #Gaps configuration
 
-gaps inner 3
-gaps outer 15
+gaps inner 0
+gaps outer 0
 #smart_gaps on
 bindsym $mod+Shift+g mode "$mode_gaps_outer"
 set $mode_gaps_outer Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -168,8 +169,8 @@ assign [class="Vivaldi-stable"] $workspace3
 assign [class="Firefox"] $workspace3
 assign [class="Spotify"] $workspace10
 for_window [class="Vivaldi-stable"] move to workspace $workspace3
-#for_window [class="MuPDF"] move to workspace $workspace4
-#for_window [class="Terminator" instance="ranger"] floating enable
+for_window [class="MuPDF"] move to workspace $workspace4
+for_window [class="ranger"] floating enable
 for_window [class="Terminator" instance="ranger"] move to workspace $workspace1
 for_window [class="Firefox"] move to workspace $workspace3
 for_window [class="Spotify"] move to workspace $workspace10
@@ -212,11 +213,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Colour Configurations
-set $bg-color            #262626
+set $bg-color            #2b303b
 set $inactive-bg-color   #504945
 set $text-color          #fbf1c7
 set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $urgent-bg-color     #bf616a
 set $cheeky              #282828
 
 hide_edge_borders both
@@ -248,47 +249,52 @@ bar {
          urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
      }
  }
- 
+
 
 
 #Initiate hdmi output
 #exec --no-startup-id terminator --classname="ranger" -e "ranger ~/Dropbox/Computing/"
 exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms 
+exec --no-startup-id xset -dpms
 exec --no-startup-id xset s noblank
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
-exec_always --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0
-exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
-exec --no-startup-id xinput set-prop 10 'Device Enabled' 0 
+exec_always --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --dpi 220
+exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --dpi 220
+#exec_always --no-startup-id  xrandr --output eDP1 --scale 1x1 --pos 0x0 --fb 3200x1800 --mode 1920x1080
+
+exec --no-startup-id xinput set-prop 10 'Device Enabled' 0
 exec --no-startup-id fluxgui
 exec --no-startup-id compton --config ~/.config/compton.conf
 
-exec --no-startup-id lemonbuddy bar 
-exec --no-startup-id redshift -b 1:1 -l geoclue2 -t 6500:3500 
+exec --no-startup-id lemonbuddy bar
+exec --no-startup-id redshift -b 1:1 -l geoclue2 -t 6500:3500
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 #Initiate i3lock
 bindsym $mod+shift+x exec /usr/local/bin/lock_suraj
 #Rofi instead of dmenu is being triggered
-bindsym $mod+shift+z exec st -e ranger ~/Dropbox/Computing/term2
+bindsym $mod+shift+z exec st -c ranger -e ranger ~/Dropbox/Computing/term2
 
 #Set wallpaper
 #Flowers
-#exec_always feh --bg-fill ~/Pictures/VigoZPi.jpg 
+#exec_always feh --bg-fill ~/Pictures/VigoZPi.jpg
 #Galaxy
-#exec_always feh --bg-fill ~/Pictures/zF1V6EE.jpg 
+#exec_always feh --bg-fill ~/Pictures/zF1V6EE.jpg
 #Lion
-#exec_always feh --bg-fill ~/Pictures/KZNlMyN.jpg 
+#exec_always feh --bg-fill ~/Pictures/KZNlMyN.jpg
 #forest
-#exec_always feh --bg-fill ~/Pictures/forest.jpg 
+#exec_always feh --bg-fill ~/Pictures/forest.jpg
 #leaves
 #exec_always feh --bg-fill ~/Pictures/leaves2.jpg
 #exec_always feh --bg-fill ~/Pictures/feh.png
 #exec_always feh --bg-fill ~/Pictures/pttn3.png
 #exec_always feh --bg-fill ~/Pictures/felt.png
-exec_always feh --bg-tile ~/Downloads/dark_wall.png
+# good one!
+#exec_always feh --bg-tile ~/Downloads/dark_wall.png
+#exec_always feh --bg-tile ~/Downloads/ep_naturalwhite.png
+exec_always feh --bg-tile ~/Downloads/green_cup.png
 
 #Always keep filesystem open
 
