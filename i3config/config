@@ -294,7 +294,7 @@ bindsym $mod+shift+z exec st -c ranger -e ranger ~/Dropbox/Computing/term2
 # good one!
 #exec_always feh --bg-tile ~/Downloads/dark_wall.png
 #exec_always feh --bg-tile ~/Downloads/ep_naturalwhite.png
-exec_always feh --bg-tile ~/Downloads/green_cup.png
+exec_always feh --bg-tile ~/Pictures/pttns/green_cup.png
 
 #Always keep filesystem open
 
