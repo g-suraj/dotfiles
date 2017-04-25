@@ -83,13 +83,10 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Current project directory
 alias pj="cd /home/suraj/Dropbox/Computing/webapps/"
 
-alias z="ranger"
 alias gst="git status"
 alias status="git status"
 alias commit="git commit"
@@ -100,8 +97,6 @@ alias sudo vim="sudo nvim"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias inst="sudo apt install"
-alias lyrics="cmus-lyrics"
 alias zshrc="nvim ~/.zshrc"
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias vimp="nvim ~/github/dotfiles/vim/plugins.vim"
@@ -116,13 +111,10 @@ alias brighter="xbacklight -inc 15"
 alias darker="xbacklight -dec 15"
 alias wb="cd /home/suraj/github/personal_webpage/bower_components/bootstrap/dist/"
 alias clean="make clean"
-alias nyan="nyancat"
-alias color="~/color-scripts/pokescript.sh"
 alias ls="ls -a -F --color=auto --group-directories-first"
-alias re="reset"
 alias docssh="ssh sg6215@point54.doc.ic.ac.uk"
 alias copy="xclip -selection clipboard"
-alias moo="apt-get moo"
+alias moo="source ~/.zshrc && fortune | cowthink -f $(find /usr/share/cowsay/cows -type f | shuf -n 1)"
 alias wacce="cd ~/Dropbox/Computing/term1/Lab/wacc_examples"
 alias sdl="cd ~/github/gameOne/"
 alias tw="rainbowstream"
@@ -140,10 +132,14 @@ alias fame="git-fame"
 alias log="git log --oneline --graph"
 alias clock="tmux clock-mode"
 alias man="vman"
+alias tls="tmux ls"
+alias ltsa="java -jar /home/suraj/Dropbox/Computing/term1/Concurrency/ltsatool/ltsa.jar & disown"
+alias food.suraj="vim ~/food.suraj"
 #export VIMRUNTIME+=/usr/share/vim/vim80
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Superman through vim plugin
 vman() {
   vim -c "SuperMan $*"
 
