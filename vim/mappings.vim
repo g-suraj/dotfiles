@@ -55,9 +55,12 @@ map <c-S-f> mzgg=G`z
 " ->       nmap <C-f> :ClangFormat<CR>
 autocmd FileType cpp nmap <silent> <buffer> <C-f> :ClangFormat<CR>
 autocmd FileType c   nmap <silent> <buffer> <C-f> :ClangFormat<CR>
+autocmd FileType js   nmap <silent> <buffer> <C-f> :!standard --fix %<CR>
+autocmd FileType html   nmap <silent> <buffer> <C-f> :!js-beautify --html -r %
+autocmd FileType css   nmap <silent> <buffer> <C-f> :!js-beautify --css -r %
 
 "-- Jumping to alternate file --"
-nmap <silent>Gf :A<CR>
+nnoremap <silent>Gf :A<CR>
 
 "-- Folds --"
 ""-- Disable for now --""
@@ -84,14 +87,14 @@ cmap w!! w !sudo tee % > /dev/null
 
 "-- Buffer movements --"
 let mapleader="\<Space>"
-nnoremap <Space> <Leader>
-nnoremap <Leader>j :bprev<CR>
-nnoremap <Leader>k :bnext<CR>
+"nnoremap <Space> <Leader>
+"nnoremap <Leader>j :bprev<CR>
+"nnoremap <Leader>k :bnext<CR>
 
 "-- Lightline + Buffer settings --"
 set laststatus=2
 set showtabline=2
 
 "-- Sayonara for buffer sanity --"
-nnoremap <leader>q :Sayonara!<cr>
-nnoremap <leader>Q :Sayonara<cr>
+nmap <leader>q :Sayonara!<cr>
+nmap <leader>Q :Sayonara<cr>

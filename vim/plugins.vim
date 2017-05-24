@@ -7,7 +7,7 @@ Plug 'zchee/deoplete-clang'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
 
 
 "-- Tim Pope --"
@@ -89,7 +89,7 @@ Plug 'airblade/vim-gitgutter'
 "-- Automatic parenthesis closing and other matching --"
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/MatchTagAlways'
-set matchpairs+=<:>
+"set matchpairs+=<:>
 
 
 "-- Auto Tagging --"
@@ -121,5 +121,7 @@ Plug 'Yggdroot/indentLine'
 "Buffer madnessh
 Plug 'mhinz/vim-sayonara'
 
+" Linting
+Plug 'w0rp/ale'
 
 call plug#end()

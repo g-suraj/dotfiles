@@ -1,6 +1,8 @@
+set autoread
 "-- Neomake --"
-autocmd! BufWritePost *.cpp Neomake!
-autocmd! BufWritePost *.c Neomake!
+" autocmd! BufWritePost *.cpp Neomake!
+" autocmd! BufWritePost *.c Neomake!
+" autocmd! BufWritePost *.js Neomake!
 
 "-- Lightline Git Integration --"
 function! LightlineFugitive()
@@ -90,3 +92,10 @@ augroup vimrc_search
   autocmd InsertEnter * call s:toggle_highlight()
   autocmd InsertLeave * call s:toggle_highlight()
 augroup END
+
+" Ale Linting
+autocmd! BufWritePost *.js silent !standard --fix %
+
+" JS beautify for HTML/CSS
+autocmd! BufWritePost *.html silent !js-beautify --html -r %
+autocmd! BufWritePost *.css silent !js-beautify --css -r %

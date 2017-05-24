@@ -261,6 +261,7 @@ exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
 exec_always --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --dpi 220
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --dpi 220
+exec_always --no-startup-id blockify
 #exec_always --no-startup-id  xrandr --output eDP1 --scale 1x1 --pos 0x0 --fb 3200x1800 --mode 1920x1080
 
 exec --no-startup-id xinput set-prop 10 'Device Enabled' 0
@@ -268,7 +269,7 @@ exec --no-startup-id fluxgui
 exec --no-startup-id compton --config ~/.config/compton.conf
 
 exec --no-startup-id lemonbuddy bar
-exec --no-startup-id redshift -b 1:0.8 -l geoclue2 -t 6500:2800
+exec --no-startup-id redshift -b 1:0.7 -l geoclue2 -t 3500:2200
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 

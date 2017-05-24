@@ -85,7 +85,7 @@ fi
 # For a full list of active aliases, run `alias`.
 
 # Current project directory
-alias pj="cd /home/suraj/Dropbox/Computing/webapps/"
+alias pj="cd /home/suraj/Dropbox/Computing/term3/webapps/webapps_31/"
 
 alias gst="git status"
 alias status="git status"

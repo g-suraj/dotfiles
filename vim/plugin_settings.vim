@@ -16,10 +16,11 @@ let g:lightline = {
       \     'right': [ [ 'bufferstext' ], ],
       \   },
       \   'active': {
-      \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'ALE' ]]
       \   },
       \   'component': {
       \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \     'ALE': '%{ALEGetStatusLine()}',
       \     'bufferstext':"buffers"
       \   },
       \   'component_expand': {
@@ -119,10 +120,10 @@ let g:clang_format#style_options = {
 let g:chromatica#libclang_path='/usr/lib/llvm-3.9/lib'
 
 "-- Neomake --"
-let g:neomake_verbose=3
-let g:neomake_open_list=2
-let g:neomake_cpp_enable_makers=['clang']
-let g:neomake_cpp_clang_args=["-std=c++11", "-Wextra", "-Wall", "-pedantic","-g"]
+" let g:neomake_verbose=3
+" let g:neomake_open_list=2
+" let g:neomake_cpp_enable_makers=['clang']
+" let g:neomake_cpp_clang_args=["-std=c++11", "-Wextra", "-Wall", "-pedantic","-g"]
 
 "-- Goyo --"
 " Width
@@ -165,3 +166,11 @@ let g:indentLine_char = '│'
 
 "-- Delimit / Matching --"
 let g:mta_use_matchparen_group = 1
+
+" Linting with ALE
+let g:ale_sign_column_always = 1
+let g:ale_statusline_format = ['⨉ %d', ' %d', '⬥ ok']
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
+
