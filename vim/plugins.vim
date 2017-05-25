@@ -124,4 +124,15 @@ Plug 'mhinz/vim-sayonara'
 " Linting
 Plug 'w0rp/ale'
 
+
+" Javascript plugins
+Plug 'pangloss/vim-javascript'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
+Plug 'Shougo/deoplete.nvim'
+Plug 'mhartington/nvim-typescript'
+Plug 'moll/vim-node'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+let g:used_javascript_libs = 'angularuirouter, angularui, angularjs, jquery'
+" Use deoplete.
 call plug#end()

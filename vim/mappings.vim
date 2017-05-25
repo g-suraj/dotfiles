@@ -56,8 +56,8 @@ map <c-S-f> mzgg=G`z
 autocmd FileType cpp nmap <silent> <buffer> <C-f> :ClangFormat<CR>
 autocmd FileType c   nmap <silent> <buffer> <C-f> :ClangFormat<CR>
 autocmd FileType js   nmap <silent> <buffer> <C-f> :!standard --fix %<CR>
-autocmd FileType html   nmap <silent> <buffer> <C-f> :!js-beautify --html -r %
-autocmd FileType css   nmap <silent> <buffer> <C-f> :!js-beautify --css -r %
+autocmd FileType html   nmap <silent> <buffer> <C-f> :silent !js-beautify --html -r %<CR><CR>
+autocmd FileType css   nmap <silent> <buffer> <C-f> :silent !js-beautify --css -r %<CR><CR>
 
 "-- Jumping to alternate file --"
 nnoremap <silent>Gf :A<CR>
