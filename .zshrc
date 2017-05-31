@@ -135,6 +135,7 @@ alias man="vman"
 alias tls="tmux ls"
 alias ltsa="java -jar /home/suraj/Dropbox/Computing/term1/Concurrency/ltsatool/ltsa.jar & disown"
 alias food.suraj="vim ~/food.suraj"
+alias cloudstack="ssh -k node@146.169.45.122"
 #export VIMRUNTIME+=/usr/share/vim/vim80
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

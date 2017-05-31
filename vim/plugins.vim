@@ -128,11 +128,11 @@ Plug 'w0rp/ale'
 " Javascript plugins
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
-"Plug 'mhartington/nvim-typescript'
 Plug 'moll/vim-node'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'elzr/vim-json'
+Plug 'cakebaker/scss-syntax.vim'
 
 " Use deoplete.
 call plug#end()

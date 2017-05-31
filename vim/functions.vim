@@ -69,6 +69,7 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 "-- Prolog file type association --"
 au BufNewFile,BufRead *.pro set filetype=prolog
 au BufNewFile,BufRead *.pl  set filetype=prolog
+au BufNewFile,BufRead *.hbs  set filetype=html
 
 "-- Vim spell checker in tex files --"
 au BufNewFile,BufRead *.tex set spell spelllang=en_gb
@@ -98,4 +99,7 @@ autocmd! BufWritePost *.js silent !standard --fix %
 
 " JS beautify for HTML/CSS
 autocmd! BufWritePost *.html silent !js-beautify --html -r %
-autocmd! BufWritePost *.css silent !js-beautify --css -r %
+autocmd! BufWritePost *.css silent !js-beautify -s 2 --css -r %
+autocmd! BufWritePost *.scss silent !js-beautify -s 2 --css -r %
+"autocmd FileType html   nmap <silent> <buffer> <C-f> :silent !js-beautify -s 2 --html -r %<CR><CR>
+"autocmd FileType css   nmap <silent> <buffer> <C-f> :silent !js-beautify -s 2 --css -r %<CR><CR>

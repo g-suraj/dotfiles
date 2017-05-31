@@ -161,8 +161,11 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 " autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 "-- Indentation --"
+let g:indentLine_enabled = 1
 let g:indentLine_color_term = 239
 let g:indentLine_char = '│'
+let g:indentLine_conceallevel = 2
+let g:indentLine_setConceal = 2
 
 "-- Delimit / Matching --"
 let g:mta_use_matchparen_group = 1
@@ -183,3 +186,6 @@ let g:tern#arguments = ["--persistent"]
 
 " Javascript library syntax libraries
 let g:used_javascript_libs = 'angularuirouter, angularui, angularjs, jquery'
+
+"Json script settings
+let g:vim_json_syntax_conceal = 0

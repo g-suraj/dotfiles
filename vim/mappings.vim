@@ -1,5 +1,4 @@
-"-- Pleb mode deactivated --"
-no <Down> <Nop>
+"-- Pleb mode deactivated --" no <Down> <Nop>
 no <Up> <Nop>
 no <Left> <Nop>
 no <Right> <Nop>
@@ -56,8 +55,8 @@ map <c-S-f> mzgg=G`z
 autocmd FileType cpp nmap <silent> <buffer> <C-f> :ClangFormat<CR>
 autocmd FileType c   nmap <silent> <buffer> <C-f> :ClangFormat<CR>
 autocmd FileType js   nmap <silent> <buffer> <C-f> :!standard --fix %<CR>
-autocmd FileType html   nmap <silent> <buffer> <C-f> :silent !js-beautify --html -r %<CR><CR>
-autocmd FileType css   nmap <silent> <buffer> <C-f> :silent !js-beautify --css -r %<CR><CR>
+autocmd FileType html   nmap <silent> <buffer> <C-f> :silent !js-beautify -s 2 --html -r %<CR><CR>
+autocmd FileType css   nmap <silent> <buffer> <C-f> :silent !js-beautify -s 2 --css -r %<CR><CR>
 
 "-- Jumping to alternate file --"
 nnoremap <silent>Gf :A<CR>
@@ -86,7 +85,7 @@ autocmd! BufWritePost *.tex :normal mzgg=G`z
 cmap w!! w !sudo tee % > /dev/null
 
 "-- Buffer movements --"
-let mapleader="\<Space>"
+"let mapleader="\<Space>"
 "nnoremap <Space> <Leader>
 "nnoremap <Leader>j :bprev<CR>
 "nnoremap <Leader>k :bnext<CR>
