@@ -123,6 +123,7 @@ Plug 'mhinz/vim-sayonara'
 
 " Linting
 Plug 'w0rp/ale'
+Plug 'mustache/vim-mustache-handlebars'
 
 
 " Javascript plugins

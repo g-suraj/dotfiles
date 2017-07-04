@@ -49,7 +49,7 @@ font-2 = FontAwesome:size=9:weight=medium;0
 
 modules-left = i3 whitespace
 modules-center =
-modules-right = dropbox volume battery dateTimeThing power whitespace
+modules-right = volume battery dateTimeThing power whitespace
 
 [module/battery]
 type = internal/battery
