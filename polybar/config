@@ -1,0 +1,122 @@
+[bar/mybar]
+monitor =
+width = 1920
+height = 24
+background = #2b303b
+foreground = #FFc0c5ce
+padding-right = 2
+module-margin = 1
+font-0 = Hack:size=10:weight=medium;3
+font-1 = FontAwesome:fontformat=truetype:size=10;3
+fixed-center = true
+modules-left = i3
+modules-center = dateTimeThing
+modules-right = volume wifi battery
+line-size = 1
+border-bottom-size = 4
+border-bottom-color = #343d46
+
+[module/power]
+type = custom/text
+content =  Suraj
+content-foreground = #ffc0c5ce
+; content-underline = #ffc0c5ce
+
+
+[module/wifi]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected =<label-connected>
+format-disconnected =<label-disconnected>
+label-connected = %essid%
+label-connected-foreground = #ffc0c5ce
+; label-connected-underline =  #ff8fa1b3
+label-disconnected = disconnected
+label-disconnected-foreground = #ffd08770
+; label-difconnected-underline =  #ffd08770
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+format-battery-padding = 30
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+format-full-foreground = #ffc0c5ce
+format-charging-foreground = #ffc0c5ce
+format-discharging-foreground = #ffc0c5ce
+bar-capacity-empty-foreground = #ffbf616a
+bar-capacity-fill = █
+bar-capacity-fill-font = 2
+bar-capacity-empty = █
+bar-capacity-empty-font = 2
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+; format-full-underline = #ffc0c5ce
+; format-charging-underline = #ffa3be8c
+; format-discharging-underline = #ffc0c5ce
+; bar-capacity-empty-underline = #ffbf616a
+
+[module/i3]
+type = internal/i3
+index-sort = true
+enable-click = true
+label-focused = %index%
+label-focused-foreground = #ff2b303b
+label-unfocused-foreground = #ccc0c5ce
+label-focused-background = #ffbf616a
+label-focused-padding = 2
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-urgent = %index%
+label-urgent-foreground = #fb4914
+label-urgent-padding = 2
+label-visible = %index%
+label-visible-foreground = #444
+label-visible-padding = 2
+
+[module/dateTimeThing]
+type = internal/date
+date =%a %d %b, %H:%M
+format-foreground = #ffc0c5ce
+; format-underline  = #FFeff1f5
+format = <label>
+
+[module/volume]
+type = internal/volume
+master-mixer= Master
+; headphone_control_numid = 19
+
+format-volume-foreground = #ffc0c5ce
+format-charging-foreground = #ffc0c5ce
+format-muted-foreground = #ffc0c5ce
+; format-volume-underline = #ffebcb8b
+; format-muted-underline = #cc241d
+
+label-volume = %percentage:3%%
+label-muted  =   0%
+
+
+[module/whitespace]
+type = custom/script
+exec= echo " "
+; vim:ft=dosini
