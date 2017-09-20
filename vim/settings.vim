@@ -61,3 +61,7 @@ let g:lightline_buffer_expand_right_icon = ' ▶'
 let g:lightline_buffer_active_buffer_left_icon = ''
 let g:lightline_buffer_active_buffer_right_icon = ''
 let g:lightline_buffer_separator_icon = ' '
+
+" Markdown preview settins
+let vim_markdown_preview_github=1
+let g:vim_markdown_preview_browser = 'Chromium'
