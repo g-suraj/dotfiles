@@ -18,7 +18,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -sidebar -mode-font "ubuntu mono 18" -width 30 -padding 12 -opacity "85" -eh 1 -lines 5 -padding 20 -hide-scrollbar -font "System San Francisco Display 18" -i'
 
 
-exec --no-startup-id  xrandr --output eDP1 --scale 1x1 --pos 0x0 --fb 3200x1800 --mode 1920x1080
+# exec_always --no-startup-id  "xrandr --output eDP1 --scale 1x1 --pos 0x0 --fb 3200x1800 --mode 1920x1080 --off"
+exec_always --no-startup-id  "xrandr --output eDP1 --mode 1920x1080 --off --auto &> ~/xrandr.log"
+exec_always --no-startup-id  "xinput -disable 'ELAN Touchscreen'"
+
 
 # change focus
 bindsym $mod+h focus left
@@ -60,16 +63,16 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # Defining workspace functions
-set $workspace1  "1"
-set $workspace2  "2"
-set $workspace3  "3"
-set $workspace4  "4"
-set $workspace5  "5"
-set $workspace6  "6"
-set $workspace7  "7"
-set $workspace8  "8"
-set $workspace9  "9"
-set $workspace10 "0"
+set $workspace1  "I"
+set $workspace2  "II"
+set $workspace3  "III"
+set $workspace4  "IV"
+set $workspace5  "V"
+set $workspace6  "VI"
+set $workspace7  "VII"
+set $workspace8  "VIII"
+set $workspace9  "IX"
+set $workspace10 "X"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -138,6 +141,8 @@ for_window [class="^.*"] border pixel 5
 exec_always feh --bg-tile ~/pictures/bg2.jpg
 exec_always --no-startup-id /usr/bin/polybar_r.sh
 exec --no-startup-id redshift -b 1:1 -l geoclue2 -t 6500:3500
+exec --no-startup-id compton -CG
+exec --no-startup-id syndaemon -i 1 -K
 
 #BINDINGS
 
@@ -164,21 +169,24 @@ for_window [class="Chromium"] move to workspace $workspace3
 # #FIREFOX
 assign [class="Firefox"] $workspace3
 for_window [class="Firefox"] move to workspace $workspace3
+
 # #Thunar
 assign [class="thunar"] $workspace1
 for_window [class="thunar"] move to workspace $workspace1
 assign [class="Thunar"] $workspace1
 for_window [class="Thunar"] move to workspace $workspace1
 
+# #Mpv
+assign [class="mpv"] $workspace5
+for_window [class="mpv"] move to workspace $workspace5
 
 
 set $Locker lock && sleep 1
 
-set $mode_system System (l) lock, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system (l) lock, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -188,18 +196,18 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Shift+e mode "$mode_system"
-gaps inner 10
-smart_gaps on
+gaps inner 8
+# smart_gaps on
 
 # Colour Configurations
-set $bg-color            #65737e
+set $bg-color            #4f5b66
 set $inactive-bg-color   #343d46
 set $text-color          #fbf1c7
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #bf616a
 set $cheeky              #282828
 
-hide_edge_borders both
+# hide_edge_borders both
 
 # window colors
 #                       border              background         text                 indicator

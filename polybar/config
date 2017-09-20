@@ -1,69 +1,43 @@
 [bar/mybar]
-monitor =
+monitor = eDP1
 width = 1920
 height = 24
 background = #2b303b
-foreground = #FFc0c5ce
-padding-right = 2
-module-margin = 1
+foreground = #eff1f5
 font-0 = Hack:size=10:weight=medium;3
-font-1 = FontAwesome:fontformat=truetype:size=10;3
+font-1 = FontAwesome:style=Regular:size=10;3
 fixed-center = true
-modules-left = i3
-modules-center = dateTimeThing
-modules-right = volume wifi battery
-line-size = 1
-border-bottom-size = 4
-border-bottom-color = #343d46
-
-[module/power]
-type = custom/text
-content =  Suraj
-content-foreground = #ffc0c5ce
-; content-underline = #ffc0c5ce
-
-
-[module/wifi]
-type = internal/network
-interface = wlp2s0
-interval = 3.0
-format-connected =<label-connected>
-format-disconnected =<label-disconnected>
-label-connected = %essid%
-label-connected-foreground = #ffc0c5ce
-; label-connected-underline =  #ff8fa1b3
-label-disconnected = disconnected
-label-disconnected-foreground = #ffd08770
-; label-difconnected-underline =  #ffd08770
+modules-left = i3 i3msg
+modules-center =
+modules-right = spotify redshift backlight wifi volume battery dateTime
+line-size = 2
+border-bottom-color = #4f5b66
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
-format-battery-padding = 30
-
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
-
+label-charging = %percentage:3\%%
+label-discharging = %percentage:3\%%
+format-full-padding = 2
+format-charging-padding = 2
+format-discharging-padding = 2
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-
-bar-capacity-width = 10
-bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-format-full-foreground = #ffc0c5ce
-format-charging-foreground = #ffc0c5ce
-format-discharging-foreground = #ffc0c5ce
+format-full-foreground = #ffeff1f5
+format-full-background = #cc343d46
+format-charging-foreground = #ffeff1f5
+format-charging-background = #33a3be8c
+format-discharging-foreground = #ffeff1f5
+format-discharging-background = #cc343d46
 bar-capacity-empty-foreground = #ffbf616a
-bar-capacity-fill = █
-bar-capacity-fill-font = 2
-bar-capacity-empty = █
-bar-capacity-empty-font = 2
-
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
@@ -71,52 +45,111 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
-; format-full-underline = #ffc0c5ce
-; format-charging-underline = #ffa3be8c
-; format-discharging-underline = #ffc0c5ce
-; bar-capacity-empty-underline = #ffbf616a
-
 [module/i3]
 type = internal/i3
+strip-wsnumbers = true
+format = <label-state>
+label-mode =
+label-mode-background = #bf616a
+label-mode-foreground = #2b303b
 index-sort = true
 enable-click = true
-label-focused = %index%
-label-focused-foreground = #ff2b303b
-label-unfocused-foreground = #ccc0c5ce
-label-focused-background = #ffbf616a
-label-focused-padding = 2
-label-unfocused = %index%
-label-unfocused-padding = 2
-label-urgent = %index%
-label-urgent-foreground = #fb4914
-label-urgent-padding = 2
-label-visible = %index%
+label-focused =%name%
+label-focused-foreground = #eff1f5
+label-focused-background = #4f5b66
+label-focused-padding = 3
+label-unfocused-foreground = #eff1f5
+label-unfocused =%name%
+label-unfocused-padding = 3
+label-urgent =%name%
+label-urgent-foreground = #eff1f5
+label-urgent-background = #343d46
+label-urgent-padding = 3
+label-visible =%name%
 label-visible-foreground = #444
-label-visible-padding = 2
+label-visible-background = #343d46
+label-visible-padding = 3
 
-[module/dateTimeThing]
+[module/i3msg]
+type = internal/i3
+format =<label-state><label-mode>
+label-mode = %mode%
+label-mode-padding = 3
+label-mode-background = #bf616a
+label-mode-foreground = #2b303b
+label-focused =
+label-unfocused =
+label-urgent =
+label-visible =
+
+[module/dateTime]
 type = internal/date
-date =%a %d %b, %H:%M
-format-foreground = #ffc0c5ce
-; format-underline  = #FFeff1f5
+date =%a %I:%M %p
 format = <label>
+format-foreground = #ffeff1f5
+format-background = #343d46
+format-padding = 2
+format-margin= 0
 
+; Makeshift System Tray
+[module/wifi]
+type = internal/network
+format-connected-padding = 2
+format-disconnected-padding = 2
+interface = wlp2s0
+interval = 3.0
+format-connected =<label-connected>
+format-disconnected =<label-disconnected>
+label-connected =%{A1:WifiNotification:}%{A}
+label-disconnected =
+
+format-connected-foreground = #88eff1f5
+format-connected-background = #88343d46
+format-disconnected-foreground = #88eff1f5
+format-disconnected-background = #88bf616a
 [module/volume]
 type = internal/volume
 master-mixer= Master
-; headphone_control_numid = 19
+format-volume-padding = 2
+format-muted-padding = 2
+format-volume-foreground = #88eff1f5
+format-volume-background = #88343d46
+format-muted-foreground = #88eff1f5
+format-muted-background = #88bf616a
+format-volume = 
+format-muted = 
 
-format-volume-foreground = #ffc0c5ce
-format-charging-foreground = #ffc0c5ce
-format-muted-foreground = #ffc0c5ce
-; format-volume-underline = #ffebcb8b
-; format-muted-underline = #cc241d
+[module/backlight]
+type = internal/xbacklight
+output = eDP1
+enable-scroll = false
+format-padding = 2
+format =<ramp>
+format-background = #88343d46
+ramp-0 =%{F#00ebcb8b}%{F-}
+ramp-1 =%{F#11ebcb8b}%{F-}
+ramp-2 =%{F#33ebcb8b}%{F-}
+ramp-3 =%{F#55ebcb8b}%{F-}
+ramp-4 =%{F#77ebcb8b}%{F-}
+ramp-5 =%{F#99ebcb8b}%{F-}
+ramp-6 =%{F#BBebcb8b}%{F-}
+ramp-7 =%{F#DDebcb8b}%{F-}
+ramp-8 =%{F#FFebcb8b}%{F-}
 
-label-volume = %percentage:3%%
-label-muted  =   0%
-
-
-[module/whitespace]
+[module/redshift]
 type = custom/script
-exec= echo " "
+interval = 20
+exec = redshiftStatus.sh status
+format-padding = 2
+format-background = #88343d46
+click-left = redshiftStatus.sh notif
+
+[module/spotify]
+type = custom/script
+format-padding = 2
+interval = 3
+format-background = #44343d46
+exec = spotifyCurrent.sh
+exec-if = pgrep -x spotify
+tail = true
 ; vim:ft=dosini
