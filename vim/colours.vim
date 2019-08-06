@@ -9,6 +9,3 @@ let base16colorspace=256
 set t_Co=256
 set background=dark
 colorscheme base16-ocean
-
-"-- old gruvbox setting --"
-"let g:gruvbox_bold=0

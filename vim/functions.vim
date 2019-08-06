@@ -66,16 +66,8 @@ endfunction
 "-- DeopleteMe additional --"
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
-"-- Prolog file type association --"
-au BufNewFile,BufRead *.pro set filetype=prolog
-au BufNewFile,BufRead *.pl  set filetype=prolog
-
-"-- Vim spell checker in tex files --"
-au BufNewFile,BufRead *.tex set spell spelllang=en_gb
-
 "-- Strip whitespace characters on write --"
 autocmd BufWritePre * :%s/\s\+$//e
-
 
 function! s:toggle_highlight()
   if exists('b:last_hlsearch')

@@ -1,0 +1,27 @@
+### colors
+### {{{
+
+set color_cmdline_fg=04
+set color_cmdline_bg=black
+set color_separator=7
+set color_statusline_bg=19
+set color_statusline_fg=7
+set color_titleline_bg=7
+set color_titleline_fg=18
+set color_win_bg=black
+
+set color_win_fg=7
+set color_win_cur=2
+set color_win_sel_bg=18
+set color_win_sel_fg=7
+set color_win_cur_sel_bg=18
+set color_win_cur_sel_fg=2
+
+ #???
+set color_win_dir=04
+
+set color_win_inactive_cur_sel_bg=4
+set color_win_inactive_cur_sel_fg=black
+set color_win_title_bg=black
+set color_win_title_fg=5
+### }}}
